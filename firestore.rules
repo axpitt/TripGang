@@ -1,0 +1,41 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── TRIPS: public read, admin write ──────────────────────────────────────
+    match /trips/{tripId} {
+      allow read: if true;
+      allow write: if false; // Admin writes via Firebase Console or admin SDK
+    }
+
+    // ── GALLERY: public read, admin write ────────────────────────────────────
+    match /gallery/{itemId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // ── TEAM: public read, admin write ───────────────────────────────────────
+    match /team/{memberId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // ── TESTIMONIALS: public read, admin write ───────────────────────────────
+    match /testimonials/{testimonialId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // ── SETTINGS: public read, admin write ───────────────────────────────────
+    match /settings/{settingId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // ── LEADS: public create-only (no read), admin full access ───────────────
+    match /leads/{leadId} {
+      allow create: if true;         // Anyone can submit a lead
+      allow read, update, delete: if false; // Only via Firebase Console / SDK
+    }
+  }
+}

@@ -1,0 +1,372 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap');
+
+@import "tailwindcss";
+
+/* ─── TRIPGANG DESIGN TOKENS — Palette 3: Monsoon Trek Theme ─────────────── */
+:root {
+  /* Backgrounds */
+  --bg-primary:    #081120;   /* Midnight Blue — monsoon sky */
+  --bg-secondary:  #0c1a2e;   /* slightly lighter deep navy */
+  --bg-card:       #102A43;   /* Deep Navy — card surfaces */
+  --bg-card-hover: #1B3B5A;   /* Sahyadri Slate — hover state */
+  --bg-elevated:   #1B3B5A;   /* Elevated surface */
+
+  /* Accent trio */
+  --accent:        #2EC27E;   /* Monsoon Green — brand primary */
+  --accent-dim:    #25a069;   /* Darker monsoon green */
+  --accent-muted:  rgba(46,194,126,0.25);
+
+  --highlight:     #38BDF8;   /* Waterfall Cyan — links & icons */
+  --highlight-dim: #0ea5e9;
+
+  --cta:           #FB8500;   /* Sunset Orange — action CTAs */
+  --cta-dim:       #e07700;
+
+  /* Text */
+  --text-primary:   #F1F5F9;  /* Cloud White */
+  --text-secondary: #94A3B8;  /* Mist Gray */
+  --text-muted:     #475569;  /* Deep muted */
+
+  /* Borders */
+  --border:        rgba(56, 189, 248, 0.1);
+  --border-hover:  rgba(56, 189, 248, 0.25);
+  --border-card:   rgba(27, 59, 90, 0.8);
+
+  /* Fonts */
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body:    'Inter', sans-serif;
+  --font-mono:    'Space Mono', monospace;
+}
+
+/* ─── BASE ────────────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── SCROLLBAR ───────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--accent-dim); border-radius: 2px; }
+
+/* ─── TYPOGRAPHY ─────────────────────────────────────────────────────────── */
+.font-display { font-family: var(--font-display); }
+.font-heading  { font-family: var(--font-heading); }
+.font-body     { font-family: var(--font-body); }
+.font-mono     { font-family: var(--font-mono); }
+
+/* ─── SECTION HEADINGS ───────────────────────────────────────────────────── */
+.section-eyebrow {
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+  display: block;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(42px, 6vw, 84px);
+  line-height: 1;
+  color: var(--text-primary);
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Ghost watermark text — sits behind section headings */
+.ghost-text {
+  font-family: var(--font-display);
+  font-size: clamp(80px, 14vw, 200px);
+  color: #F1F5F9;
+  opacity: 0.06;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  position: absolute;
+  top: -0.2em;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+
+/* ─── BUTTONS ─────────────────────────────────────────────────────────────── */
+
+/* Primary — Monsoon Green (brand accent) */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background: var(--accent);
+  color: #041a10;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.12), transparent);
+  border-radius: 8px;
+  pointer-events: none;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(46, 194, 126, 0.35);
+  background: #35d68a;
+}
+
+/* CTA — Sunset Orange (action/urgency) */
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background: var(--cta);
+  color: #1a0800;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+.btn-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(251, 133, 0, 0.4);
+  background: #ff9410;
+}
+
+/* Outline — Waterfall Cyan border */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 32px;
+  background: transparent;
+  color: var(--highlight);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 15px;
+  border: 1.5px solid rgba(56, 189, 248, 0.4);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+.btn-outline::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--highlight);
+  transform: translateX(-101%);
+  transition: transform 0.3s ease;
+}
+.btn-outline:hover::before {
+  transform: translateX(0);
+}
+.btn-outline:hover {
+  color: #041a30;
+  border-color: var(--highlight);
+  transform: translateY(-2px);
+}
+.btn-outline span {
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── CARD ───────────────────────────────────────────────────────────────── */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 48px rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.2);
+}
+
+/* ─── FLOATING WHATSAPP ──────────────────────────────────────────────────── */
+.whatsapp-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  width: 58px;
+  height: 58px;
+  background: linear-gradient(135deg, #2ecc71 0%, #25d366 50%, #1aab54 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow:
+    0 4px 20px rgba(37, 211, 102, 0.55),
+    0 1px 0 rgba(255,255,255,0.35) inset,
+    0 -2px 6px rgba(0,0,0,0.3) inset;
+  animation: pulse-wa 3s ease-in-out infinite;
+  transition: transform 0.2s ease;
+}
+.whatsapp-fab::before {
+  content: '';
+  position: absolute;
+  top: 4px; left: 8px; right: 8px;
+  height: 40%;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.45), transparent);
+  border-radius: 50% 50% 0 0 / 60% 60% 0 0;
+  pointer-events: none;
+}
+.whatsapp-fab:hover {
+  transform: scale(1.12);
+  box-shadow: 0 8px 36px rgba(37, 211, 102, 0.7), 0 1px 0 rgba(255,255,255,0.4) inset;
+}
+@keyframes pulse-wa {
+  0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.5), 0 1px 0 rgba(255,255,255,0.35) inset; }
+  50%       { box-shadow: 0 4px 48px rgba(37,211,102,0.85), 0 0 0 10px rgba(37,211,102,0.12), 0 1px 0 rgba(255,255,255,0.35) inset; }
+}
+
+/* ─── RAIN PARTICLES ─────────────────────────────────────────────────────── */
+.rain-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.rain-drop {
+  position: absolute;
+  top: -20px;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(56, 189, 248, 0.15));
+  border-radius: 2px;
+  animation: rain-fall linear infinite;
+}
+@keyframes rain-fall {
+  to { transform: translateY(110vh); }
+}
+
+/* ─── PRELOADER ──────────────────────────────────────────────────────────── */
+.preloader {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* ─── HERO SLIDESHOW ─────────────────────────────────────────────────────── */
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  will-change: transform, opacity;
+}
+
+/* ─── TRIP CARD SEAT BAR ─────────────────────────────────────────────────── */
+.seat-bar {
+  height: 3px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.seat-bar-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width 0.5s ease;
+}
+.seat-bar-fill.critical { background: #ef4444; }
+
+/* ─── TOPO MAP TEXTURE (subtle background pattern) ───────────────────────── */
+.topo-texture {
+  background-image:
+    radial-gradient(circle at 20% 80%, rgba(46,194,126,0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(56,189,248,0.03) 0%, transparent 50%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 48px,
+      rgba(56,189,248,0.02) 48px,
+      rgba(56,189,248,0.02) 49px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 48px,
+      rgba(56,189,248,0.02) 48px,
+      rgba(56,189,248,0.02) 49px
+    );
+}
+
+/* ─── SCROLL REVEAL UTILITY ──────────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+/* ─── DIVIDER ────────────────────────────────────────────────────────────── */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-hover), transparent);
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+/* ─── BADGE ──────────────────────────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 14px;
+  border-radius: 100px;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.badge-accent { background: rgba(46,194,126,0.12); color: var(--accent); border: 1px solid rgba(46,194,126,0.2); }
+.badge-cta    { background: rgba(251,133,0,0.12); color: var(--cta); border: 1px solid rgba(251,133,0,0.2); }
+.badge-info   { background: rgba(56,189,248,0.12); color: var(--highlight); border: 1px solid rgba(56,189,248,0.2); }
