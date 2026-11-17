@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from 'react-router-dom'
+﻿import { Routes, Route, useLocation } from 'react-router-dom'
 import { lazy, Suspense } from 'react'
 
 // Public pages
@@ -6,6 +6,7 @@ const Home = lazy(() => import('./pages/Home'))
 const TripDetail = lazy(() => import('./pages/TripDetail'))
 const GalleryPage = lazy(() => import('./pages/GalleryPage'))
 const CancellationPolicy = lazy(() => import('./pages/CancellationPolicy'))
+const PrototypesShowcase = lazy(() => import('./pages/PrototypesShowcase'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 
 // Admin — lazy loaded, NOT bundled with public pages
@@ -25,7 +26,7 @@ function App() {
       <Suspense fallback={
         <div className="preloader">
           <div style={{
-            fontFamily: 'Bebas Neue, sans-serif',
+            fontFamily: 'Clash Display, sans-serif',
             fontSize: '48px',
             color: '#2EC27E',
             letterSpacing: '4px',
@@ -41,6 +42,7 @@ function App() {
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/cancellation-policy" element={<CancellationPolicy />} />
           <Route path="/gang-admin" element={<Admin />} />
+          <Route path="/prototypes" element={<PrototypesShowcase />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
@@ -51,3 +53,6 @@ function App() {
 }
 
 export default App
+
+
+

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useAdminAuth } from './useAdminAuth'
 import logoImg from '../assets/logo.png'
@@ -53,13 +53,13 @@ const AdminLogin = () => {
             }}
           />
           <div style={{
-            fontFamily: 'Bebas Neue, sans-serif', fontSize: 36, letterSpacing: 4, marginBottom: 6,
+            fontFamily: 'Clash Display, sans-serif', fontSize: 36, letterSpacing: 4, marginBottom: 6,
           }}>
             <span style={{ color: '#F1F5F9' }}>TRIP</span>
             <span style={{ color: '#2EC27E' }}>GANG</span>
           </div>
           <p style={{
-            fontFamily: 'Space Grotesk, sans-serif', fontSize: 11,
+            fontFamily: 'Satoshi, sans-serif', fontSize: 11,
             color: '#475569', letterSpacing: 3, textTransform: 'uppercase',
           }}>Admin Portal</p>
         </div>
@@ -67,7 +67,7 @@ const AdminLogin = () => {
         <form onSubmit={submit} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
           {/* Email */}
           <div>
-            <label style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 11, color: '#94A3B8', letterSpacing: 1.5, textTransform: 'uppercase', display: 'block', marginBottom: 6 }}>
+            <label style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 11, color: '#94A3B8', letterSpacing: 1.5, textTransform: 'uppercase', display: 'block', marginBottom: 6 }}>
               Email
             </label>
             <input
@@ -78,7 +78,7 @@ const AdminLogin = () => {
                 width: '100%', boxSizing: 'border-box',
                 background: '#081120', border: '1px solid rgba(56,189,248,0.15)',
                 borderRadius: 10, padding: '12px 16px',
-                fontFamily: 'Space Grotesk, sans-serif', fontSize: 14, color: '#F1F5F9',
+                fontFamily: 'Satoshi, sans-serif', fontSize: 14, color: '#F1F5F9',
                 outline: 'none', transition: 'border-color 0.2s',
               }}
               onFocus={e => e.target.style.borderColor = 'rgba(56,189,248,0.5)'}
@@ -88,7 +88,7 @@ const AdminLogin = () => {
 
           {/* Password */}
           <div>
-            <label style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 11, color: '#94A3B8', letterSpacing: 1.5, textTransform: 'uppercase', display: 'block', marginBottom: 6 }}>
+            <label style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 11, color: '#94A3B8', letterSpacing: 1.5, textTransform: 'uppercase', display: 'block', marginBottom: 6 }}>
               Password
             </label>
             <div style={{ position: 'relative' }}>
@@ -101,7 +101,7 @@ const AdminLogin = () => {
                   width: '100%', boxSizing: 'border-box',
                   background: '#081120', border: '1px solid rgba(56,189,248,0.15)',
                   borderRadius: 10, padding: '12px 44px 12px 16px',
-                  fontFamily: 'Space Grotesk, sans-serif', fontSize: 14, color: '#F1F5F9',
+                  fontFamily: 'Satoshi, sans-serif', fontSize: 14, color: '#F1F5F9',
                   outline: 'none', transition: 'border-color 0.2s',
                 }}
                 onFocus={e => e.target.style.borderColor = 'rgba(56,189,248,0.5)'}
@@ -122,7 +122,7 @@ const AdminLogin = () => {
             <div style={{
               background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.25)',
               borderRadius: 8, padding: '10px 14px',
-              fontFamily: 'Space Grotesk, sans-serif', fontSize: 13, color: '#f87171',
+              fontFamily: 'Satoshi, sans-serif', fontSize: 13, color: '#f87171',
             }}>
               {error}
             </div>
@@ -138,7 +138,7 @@ const AdminLogin = () => {
               background: loading ? '#1B3B5A' : 'linear-gradient(135deg, #2EC27E 0%, #22a76b 100%)',
               border: 'none', borderRadius: 10,
               padding: '14px', cursor: loading ? 'not-allowed' : 'pointer',
-              fontFamily: 'Space Grotesk, sans-serif', fontSize: 14, fontWeight: 700,
+              fontFamily: 'Satoshi, sans-serif', fontSize: 14, fontWeight: 700,
               color: loading ? '#475569' : '#041a10',
               letterSpacing: 0.5, transition: 'background 0.3s',
             }}
@@ -148,7 +148,7 @@ const AdminLogin = () => {
         </form>
 
         <p style={{
-          fontFamily: 'Space Grotesk, sans-serif', fontSize: 11,
+          fontFamily: 'Satoshi, sans-serif', fontSize: 11,
           color: '#1B3B5A', textAlign: 'center', marginTop: 24, letterSpacing: 0.5,
         }}>
           Authorized personnel only
@@ -159,3 +159,6 @@ const AdminLogin = () => {
 }
 
 export default AdminLogin
+
+
+

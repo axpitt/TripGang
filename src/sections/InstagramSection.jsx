@@ -10,20 +10,11 @@ const InstagramSection = () => {
       id="instagram"
       style={{
         padding: 'clamp(80px, 10vw, 120px) 24px',
-        background: '#081120',
+        background: '#0A0B0E',
         position: 'relative',
         overflow: 'hidden',
       }}
     >
-      {/* Gradient orbs */}
-      <div style={{
-        position: 'absolute', inset: 0, pointerEvents: 'none',
-        background: `
-          radial-gradient(circle at 20% 50%, rgba(138,58,185,0.05) 0%, transparent 50%),
-          radial-gradient(circle at 80% 50%, rgba(240,148,51,0.05) 0%, transparent 50%)
-        `,
-      }} />
-
       <div ref={ref} style={{ maxWidth: 700, margin: '0 auto', position: 'relative', zIndex: 1 }}>
 
         {/* Header */}
@@ -42,29 +33,25 @@ const InstagramSection = () => {
             animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
             transition={{ delay: 0.12, duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
             style={{
-              fontFamily: 'Bebas Neue, sans-serif',
+              fontFamily: 'Clash Display, sans-serif',
               fontSize: 'clamp(42px, 6vw, 84px)',
               lineHeight: 1, color: '#F1F5F9', letterSpacing: 1,
               marginBottom: 16,
             }}
           >
-            WE'RE ON{' '}
-            <span style={{
-              background: 'linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-            }}>INSTAGRAM</span>
+            JOIN US ON <span style={{ color: '#2EC27E' }}>INSTAGRAM</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.25, duration: 0.7 }}
             style={{
-              fontFamily: 'Inter, sans-serif', fontSize: 16,
-              color: '#94A3B8', maxWidth: 420, margin: '0 auto',
+              fontFamily: 'Satoshi, sans-serif', fontSize: 16,
+              color: '#94A3B8', maxWidth: 460, margin: '0 auto',
+              lineHeight: 1.6,
             }}
           >
-            Live updates, behind-the-scenes, and real moments from every trek. Don't miss out.
+            Live stories, road trip highlights, and raw candid moments from every trip.
           </motion.p>
         </div>
 
@@ -76,10 +63,11 @@ const InstagramSection = () => {
           style={{
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             flexDirection: 'column', gap: 24,
-            background: 'linear-gradient(135deg, rgba(138,58,185,0.08), rgba(240,148,51,0.08))',
-            border: '1px solid rgba(240,148,51,0.12)',
+            background: 'rgba(18,21,28,0.7)',
+            border: '1px solid rgba(255,255,255,0.08)',
             borderRadius: 24, padding: '48px 32px',
             textAlign: 'center',
+            backdropFilter: 'blur(16px)',
           }}
         >
           {/* Instagram handle */}
@@ -97,11 +85,11 @@ const InstagramSection = () => {
             </div>
             <div style={{ textAlign: 'left' }}>
               <div style={{
-                fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700,
+                fontFamily: 'Satoshi, sans-serif', fontWeight: 700,
                 fontSize: 22, color: '#F1F5F9',
               }}>@tripgang.co</div>
               <div style={{
-                fontFamily: 'Inter, sans-serif', fontSize: 14, color: '#475569', marginTop: 2,
+                fontFamily: 'Satoshi, sans-serif', fontSize: 14, color: '#475569', marginTop: 2,
               }}>Follow us for real-time trek updates</div>
             </div>
           </div>
@@ -115,7 +103,7 @@ const InstagramSection = () => {
               display: 'inline-flex', alignItems: 'center', gap: 10,
               padding: '14px 40px',
               background: 'linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)',
-              color: '#fff', fontFamily: 'Space Grotesk, sans-serif',
+              color: '#fff', fontFamily: 'Satoshi, sans-serif',
               fontWeight: 700, fontSize: 16, borderRadius: 8,
               textDecoration: 'none', transition: 'transform 0.25s ease, box-shadow 0.25s ease',
             }}
@@ -140,3 +128,6 @@ const InstagramSection = () => {
 }
 
 export default InstagramSection
+
+
+

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
-import { AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 
 import Preloader from '../components/ui/Preloader'
 import Navbar from '../components/ui/Navbar'
@@ -12,7 +12,7 @@ import InstagramSection from '../sections/InstagramSection'
 import TeamSection from '../sections/TeamSection'
 import FooterSection from '../sections/FooterSection'
 
-const PRELOADER_KEY = 'tg_loaded_v2'
+const PRELOADER_KEY = 'tg_loaded_v4'
 
 const Home = () => {
   const [showPreloader, setShowPreloader] = useState(() => {
@@ -28,22 +28,27 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>TripGang — Explore. Experience. Evolve. | Monsoon Treks Maharashtra</title>
-        <meta name="description" content="TripGang runs affordable monsoon treks and day trips across Maharashtra. Based in Chhatrapati Sambhajinagar. Book the Adrai Jungle Trek 2026 — ₹1,499 early bird." />
-        <meta property="og:title" content="TripGang — Monsoon Treks Maharashtra" />
-        <meta property="og:description" content="Walk through clouds, waterfalls & untouched rainforest. Book your monsoon trek now." />
+        <title>TripGang — Explore. Experience. Evolve. | Group Trips, Road Trips &amp; Adventures</title>
+        <meta name="description" content="TripGang curates affordable group trips, road trips, weekend getaways, camping nights, and mountain adventures across Maharashtra &amp; India. Based in Chhatrapati Sambhajinagar." />
+        <meta property="og:title" content="TripGang — Group Trips, Road Trips &amp; Adventures" />
+        <meta property="og:description" content="Not just treks — road trips, camping, beach getaways &amp; epic group adventures. Join the gang." />
         <meta property="og:type" content="website" />
-        <meta name="theme-color" content="#081120" />
+        <meta name="theme-color" content="#0A0B0E" />
       </Helmet>
 
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {showPreloader && (
           <Preloader onComplete={handlePreloaderComplete} />
         )}
       </AnimatePresence>
 
       {!showPreloader && (
-        <div style={{ background: '#081120', minHeight: '100vh' }}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          style={{ background: '#0A0B0E', minHeight: '100vh' }}
+        >
           <Navbar />
           <main>
             <HeroSection />
@@ -53,7 +58,7 @@ const Home = () => {
             <InstagramSection />
           </main>
           <FooterSection />
-        </div>
+        </motion.div>
       )}
     </>
   )

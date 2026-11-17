@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+﻿import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { getTrips, addTrip, updateTrip, deleteTrip } from '../../lib/firestore'
 import { Timestamp } from 'firebase/firestore'
@@ -148,7 +148,7 @@ const TemplatePicker = ({ onSelect }) => (
     borderRadius: 12,
   }}>
     <p style={{
-      fontFamily: 'Space Grotesk, sans-serif', fontSize: 11,
+      fontFamily: 'Satoshi, sans-serif', fontSize: 11,
       color: '#2EC27E', letterSpacing: 1.5, textTransform: 'uppercase',
       marginBottom: 10,
     }}>⚡ Quick Templates — Click to Auto-fill</p>
@@ -177,18 +177,18 @@ const TemplatePicker = ({ onSelect }) => (
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
             <span style={{ fontSize: 20 }}>{t._emoji}</span>
             <span style={{
-              fontFamily: 'Space Grotesk, sans-serif', fontSize: 13,
+              fontFamily: 'Satoshi, sans-serif', fontSize: 13,
               fontWeight: 700, color: '#F1F5F9',
             }}>{t.name}</span>
             <span style={{
               marginLeft: 'auto',
-              fontFamily: 'Space Grotesk, sans-serif', fontSize: 10, fontWeight: 700,
+              fontFamily: 'Satoshi, sans-serif', fontSize: 10, fontWeight: 700,
               background: t._badgeColor, color: '#041a10',
               padding: '2px 8px', borderRadius: 100,
             }}>{t._badge}</span>
           </div>
           <p style={{
-            fontFamily: 'Inter, sans-serif', fontSize: 11,
+            fontFamily: 'Satoshi, sans-serif', fontSize: 11,
             color: '#475569', margin: 0,
           }}>{t._tagline}</p>
         </button>
@@ -199,7 +199,7 @@ const TemplatePicker = ({ onSelect }) => (
 
 const Field = ({ label, children }) => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
-    <label style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 11, color: '#94A3B8', letterSpacing: 1.5, textTransform: 'uppercase' }}>{label}</label>
+    <label style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 11, color: '#94A3B8', letterSpacing: 1.5, textTransform: 'uppercase' }}>{label}</label>
     {children}
   </div>
 )
@@ -207,7 +207,7 @@ const Field = ({ label, children }) => (
 const inp = {
   background: '#081120', border: '1px solid rgba(56,189,248,0.15)',
   borderRadius: 8, padding: '9px 12px', width: '100%', boxSizing: 'border-box',
-  fontFamily: 'Space Grotesk, sans-serif', fontSize: 13, color: '#F1F5F9', outline: 'none',
+  fontFamily: 'Satoshi, sans-serif', fontSize: 13, color: '#F1F5F9', outline: 'none',
 }
 
 // ─── List editor: add/remove strings ─────────────────────────────────────────
@@ -224,7 +224,7 @@ const ListEditor = ({ label, items, onChange, placeholder }) => {
 
   return (
     <div style={{ gridColumn: '1 / -1', display: 'flex', flexDirection: 'column', gap: 8 }}>
-      <label style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 11, color: '#94A3B8', letterSpacing: 1.5, textTransform: 'uppercase' }}>{label}</label>
+      <label style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 11, color: '#94A3B8', letterSpacing: 1.5, textTransform: 'uppercase' }}>{label}</label>
       <div style={{ display: 'flex', gap: 8 }}>
         <input
           style={{ ...inp, flex: 1 }}
@@ -235,7 +235,7 @@ const ListEditor = ({ label, items, onChange, placeholder }) => {
         <button type="button" onClick={add} style={{
           background: 'rgba(46,194,126,0.12)', border: '1px solid rgba(46,194,126,0.2)',
           borderRadius: 8, padding: '9px 16px', color: '#2EC27E',
-          fontFamily: 'Space Grotesk, sans-serif', fontSize: 12, cursor: 'pointer', flexShrink: 0,
+          fontFamily: 'Satoshi, sans-serif', fontSize: 12, cursor: 'pointer', flexShrink: 0,
         }}>+ Add</button>
       </div>
       {items.length > 0 && (
@@ -245,7 +245,7 @@ const ListEditor = ({ label, items, onChange, placeholder }) => {
               display: 'flex', alignItems: 'center', gap: 6,
               background: 'rgba(56,189,248,0.06)', border: '1px solid rgba(56,189,248,0.12)',
               borderRadius: 6, padding: '4px 10px',
-              fontFamily: 'Space Grotesk, sans-serif', fontSize: 12, color: '#94A3B8',
+              fontFamily: 'Satoshi, sans-serif', fontSize: 12, color: '#94A3B8',
               maxWidth: '100%',
             }}>
               <span style={{ maxWidth: 300, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{item}</span>
@@ -274,21 +274,21 @@ const ItineraryEditor = ({ items, onChange }) => {
 
   return (
     <div style={{ gridColumn: '1 / -1', display: 'flex', flexDirection: 'column', gap: 10 }}>
-      <label style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 11, color: '#94A3B8', letterSpacing: 1.5, textTransform: 'uppercase' }}>Full Itinerary (Day by Day)</label>
+      <label style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 11, color: '#94A3B8', letterSpacing: 1.5, textTransform: 'uppercase' }}>Full Itinerary (Day by Day)</label>
       <div style={{ display: 'grid', gridTemplateColumns: '80px 1fr 2fr', gap: 8, alignItems: 'end' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-          <label style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 10, color: '#475569' }}>Day #</label>
+          <label style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 10, color: '#475569' }}>Day #</label>
           <input style={inp} placeholder="1" type="number" value={draft.day} onChange={e => setDraft(d => ({ ...d, day: e.target.value }))} />
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-          <label style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 10, color: '#475569' }}>Title</label>
+          <label style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 10, color: '#475569' }}>Title</label>
           <input style={inp} placeholder="Arrival & base camp" value={draft.title} onChange={e => setDraft(d => ({ ...d, title: e.target.value }))} />
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-          <label style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 10, color: '#475569' }}>Description</label>
+          <label style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 10, color: '#475569' }}>Description</label>
           <div style={{ display: 'flex', gap: 6 }}>
             <input style={{ ...inp, flex: 1 }} placeholder="What happens this day..." value={draft.description} onChange={e => setDraft(d => ({ ...d, description: e.target.value }))} onKeyDown={e => e.key === 'Enter' && (e.preventDefault(), add())} />
-            <button type="button" onClick={add} style={{ background: 'rgba(46,194,126,0.12)', border: '1px solid rgba(46,194,126,0.2)', borderRadius: 8, padding: '9px 12px', color: '#2EC27E', fontFamily: 'Space Grotesk, sans-serif', fontSize: 12, cursor: 'pointer', flexShrink: 0 }}>+</button>
+            <button type="button" onClick={add} style={{ background: 'rgba(46,194,126,0.12)', border: '1px solid rgba(46,194,126,0.2)', borderRadius: 8, padding: '9px 12px', color: '#2EC27E', fontFamily: 'Satoshi, sans-serif', fontSize: 12, cursor: 'pointer', flexShrink: 0 }}>+</button>
           </div>
         </div>
       </div>
@@ -296,10 +296,10 @@ const ItineraryEditor = ({ items, onChange }) => {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginTop: 4 }}>
           {items.map((item, i) => (
             <div key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', background: 'rgba(56,189,248,0.04)', border: '1px solid rgba(56,189,248,0.08)', borderRadius: 8, padding: '8px 12px' }}>
-              <div style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 14, color: '#2EC27E', minWidth: 40 }}>DAY {item.day}</div>
+              <div style={{ fontFamily: 'Clash Display, sans-serif', fontSize: 14, color: '#2EC27E', minWidth: 40 }}>DAY {item.day}</div>
               <div style={{ flex: 1 }}>
-                {item.title && <div style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 12, fontWeight: 600, color: '#F1F5F9', marginBottom: 2 }}>{item.title}</div>}
-                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, color: '#94A3B8' }}>{item.description}</div>
+                {item.title && <div style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 12, fontWeight: 600, color: '#F1F5F9', marginBottom: 2 }}>{item.title}</div>}
+                <div style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 12, color: '#94A3B8' }}>{item.description}</div>
               </div>
               <button type="button" onClick={() => remove(i)} style={{ background: 'none', border: 'none', color: '#475569', cursor: 'pointer', fontSize: 14, padding: 0 }}>✕</button>
             </div>
@@ -356,7 +356,7 @@ const TripModal = ({ trip, onSave, onClose }) => {
     background: activeTab === t ? 'rgba(46,194,126,0.12)' : 'transparent',
     border: activeTab === t ? '1px solid rgba(46,194,126,0.25)' : '1px solid transparent',
     borderRadius: 7, padding: '7px 16px',
-    fontFamily: 'Space Grotesk, sans-serif', fontSize: 12, fontWeight: 600,
+    fontFamily: 'Satoshi, sans-serif', fontSize: 12, fontWeight: 600,
     color: activeTab === t ? '#2EC27E' : '#475569', cursor: 'pointer',
     transition: 'all 0.2s',
   })
@@ -376,7 +376,7 @@ const TripModal = ({ trip, onSave, onClose }) => {
           maxHeight: '90vh', overflowY: 'auto',
         }}
       >
-        <h3 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 24, color: '#F1F5F9', marginBottom: 20, letterSpacing: 1 }}>
+        <h3 style={{ fontFamily: 'Clash Display, sans-serif', fontSize: 24, color: '#F1F5F9', marginBottom: 20, letterSpacing: 1 }}>
           {trip ? 'Edit Trip' : 'Add New Trip'}
         </h3>
 
@@ -428,7 +428,7 @@ const TripModal = ({ trip, onSave, onClose }) => {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
               <Field label="YouTube Preview Link (optional)">
                 <input style={inp} placeholder="https://youtube.com/watch?v=..." value={form.ytLink} onChange={e => set('ytLink', e.target.value)} />
-                <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, color: '#475569', marginTop: 4 }}>
+                <span style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 11, color: '#475569', marginTop: 4 }}>
                   This will be shown as an embedded video on the trip page for destination reference.
                 </span>
               </Field>
@@ -476,12 +476,12 @@ const TripModal = ({ trip, onSave, onClose }) => {
             <button type="button" onClick={onClose} style={{
               background: 'transparent', border: '1px solid rgba(56,189,248,0.2)',
               borderRadius: 8, padding: '10px 20px', color: '#94A3B8',
-              fontFamily: 'Space Grotesk, sans-serif', fontSize: 13, cursor: 'pointer',
+              fontFamily: 'Satoshi, sans-serif', fontSize: 13, cursor: 'pointer',
             }}>Cancel</button>
             <button type="submit" disabled={saving} style={{
               background: '#2EC27E', border: 'none', borderRadius: 8,
               padding: '10px 24px', color: '#041a10',
-              fontFamily: 'Space Grotesk, sans-serif', fontSize: 13, fontWeight: 700, cursor: 'pointer',
+              fontFamily: 'Satoshi, sans-serif', fontSize: 13, fontWeight: 700, cursor: 'pointer',
             }}>{saving ? 'Saving…' : 'Save Trip'}</button>
           </div>
         </form>
@@ -509,15 +509,15 @@ const TripsTab = () => {
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
-        <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 28, color: '#F1F5F9', letterSpacing: 1 }}>TRIPS</h2>
+        <h2 style={{ fontFamily: 'Clash Display, sans-serif', fontSize: 28, color: '#F1F5F9', letterSpacing: 1 }}>TRIPS</h2>
         <button onClick={() => setModal('add')} style={{
           background: '#2EC27E', border: 'none', borderRadius: 8, padding: '10px 20px',
-          fontFamily: 'Space Grotesk, sans-serif', fontSize: 13, fontWeight: 700,
+          fontFamily: 'Satoshi, sans-serif', fontSize: 13, fontWeight: 700,
           color: '#041a10', cursor: 'pointer',
         }}>+ Add Trip</button>
       </div>
 
-      {loading ? <p style={{ color: '#475569', fontFamily: 'Space Grotesk, sans-serif' }}>Loading…</p> : (
+      {loading ? <p style={{ color: '#475569', fontFamily: 'Satoshi, sans-serif' }}>Loading…</p> : (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 16 }}>
           {trips.map(trip => (
             <div key={trip.id} style={{
@@ -528,21 +528,21 @@ const TripsTab = () => {
               {!trip.heroImage && <div style={{ height: 130, background: '#081120', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 32 }}>🏔️</div>}
               <div style={{ padding: 16 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 }}>
-                  <h3 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 15, fontWeight: 700, color: '#F1F5F9' }}>{trip.name}</h3>
+                  <h3 style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 15, fontWeight: 700, color: '#F1F5F9' }}>{trip.name}</h3>
                   <span style={{
-                    fontFamily: 'Space Grotesk, sans-serif', fontSize: 10, fontWeight: 700,
+                    fontFamily: 'Satoshi, sans-serif', fontSize: 10, fontWeight: 700,
                     background: diffColor[trip.difficulty] || '#2EC27E', color: '#041a10',
                     padding: '2px 8px', borderRadius: 100,
                   }}>{trip.difficulty}</span>
                 </div>
-                <p style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 12, color: '#475569', marginBottom: 4 }}>
+                <p style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 12, color: '#475569', marginBottom: 4 }}>
                   📍 {trip.destination} · {trip.duration}
                 </p>
-                <p style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 13, color: '#2EC27E', fontWeight: 700, marginBottom: 4 }}>
+                <p style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 13, color: '#2EC27E', fontWeight: 700, marginBottom: 4 }}>
                   ₹{trip.earlyBirdPrice?.toLocaleString()} <span style={{ color: '#475569', fontWeight: 400, fontSize: 12 }}>/ ₹{trip.regularPrice?.toLocaleString()}</span>
                 </p>
                 {/* Quick summary of new fields */}
-                <p style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 11, color: '#475569', marginBottom: 12 }}>
+                <p style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 11, color: '#475569', marginBottom: 12 }}>
                   📸 {trip.photos?.length || 0} photos · 🗓 {trip.itinerary?.length || 0} days ·{' '}
                   <span style={{ color: trip.status === 'open' ? '#2EC27E' : '#ef4444' }}>{trip.status}</span>
                 </p>
@@ -550,12 +550,12 @@ const TripsTab = () => {
                   <button onClick={() => setModal(trip)} style={{
                     flex: 1, background: 'rgba(56,189,248,0.08)', border: '1px solid rgba(56,189,248,0.15)',
                     borderRadius: 7, padding: '8px', color: '#38BDF8',
-                    fontFamily: 'Space Grotesk, sans-serif', fontSize: 12, cursor: 'pointer',
+                    fontFamily: 'Satoshi, sans-serif', fontSize: 12, cursor: 'pointer',
                   }}>Edit</button>
                   <button onClick={() => del(trip.id)} style={{
                     flex: 1, background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.15)',
                     borderRadius: 7, padding: '8px', color: '#f87171',
-                    fontFamily: 'Space Grotesk, sans-serif', fontSize: 12, cursor: 'pointer',
+                    fontFamily: 'Satoshi, sans-serif', fontSize: 12, cursor: 'pointer',
                   }}>Delete</button>
                 </div>
               </div>
@@ -578,3 +578,6 @@ const TripsTab = () => {
 }
 
 export default TripsTab
+
+
+

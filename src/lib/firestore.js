@@ -5,6 +5,7 @@ import {
   doc,
   addDoc,
   updateDoc,
+  setDoc,
   deleteDoc,
   query,
   where,
@@ -46,22 +47,69 @@ export const deleteTrip = async (id) => {
 // ─── GALLERY ──────────────────────────────────────────────────────────────────
 
 export const getGallery = async () => {
-  const snap = await getDocs(
-    query(collection(db, "gallery"), orderBy("createdAt", "desc"))
-  );
-  return snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+  try {
+    const snap = await getDocs(
+      query(collection(db, "gallery"), orderBy("createdAt", "desc"))
+    );
+    return snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+  } catch (err) {
+    const snap = await getDocs(collection(db, "gallery"));
+    return snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+  }
 };
 
-// Only featured photos for home page, sorted by featuredOrder
+// Only featured photos for home page, sorted by featuredOrder or slot
 export const getFeaturedGallery = async () => {
-  const snap = await getDocs(
-    query(
-      collection(db, "gallery"),
-      where("featured", "==", true),
-      orderBy("featuredOrder", "asc")
-    )
+  try {
+    const snap = await getDocs(
+      query(
+        collection(db, "gallery"),
+        where("featured", "==", true),
+        orderBy("featuredOrder", "asc")
+      )
+    );
+    return snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+  } catch (err) {
+    try {
+      const snap = await getDocs(collection(db, "gallery"));
+      return snap.docs
+        .map((d) => ({ id: d.id, ...d.data() }))
+        .filter((p) => p.featured)
+        .sort((a, b) => (a.featuredOrder || a.slot || 99) - (b.featuredOrder || b.slot || 99));
+    } catch (e) {
+      return [];
+    }
+  }
+};
+
+export const setHomeSlotPhoto = async (slotNumber, data) => {
+  const slotDocId = `slot_${slotNumber}`;
+  return await setDoc(
+    doc(db, "gallery", slotDocId),
+    {
+      ...data,
+      slot: slotNumber,
+      featured: true,
+      featuredOrder: slotNumber,
+      updatedAt: serverTimestamp(),
+      createdAt: serverTimestamp(),
+    },
+    { merge: true }
   );
-  return snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+};
+
+export const clearHomeSlotPhoto = async (slotNumber) => {
+  const slotDocId = `slot_${slotNumber}`;
+  return await setDoc(
+    doc(db, "gallery", slotDocId),
+    {
+      featured: false,
+      url: "",
+      tripName: "",
+      updatedAt: serverTimestamp(),
+    },
+    { merge: true }
+  );
 };
 
 export const addGalleryItem = async (data) => {

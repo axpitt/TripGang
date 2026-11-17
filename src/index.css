@@ -2,35 +2,35 @@
 
 @import "tailwindcss";
 
-/* ─── TRIPGANG DESIGN TOKENS — Palette 3: Monsoon Trek Theme ─────────────── */
+/* ─── TRIPGANG DESIGN TOKENS — Aesthetic Dark Editorial Theme ─────────────── */
 :root {
-  /* Backgrounds */
-  --bg-primary:    #081120;   /* Midnight Blue — monsoon sky */
-  --bg-secondary:  #0c1a2e;   /* slightly lighter deep navy */
-  --bg-card:       #102A43;   /* Deep Navy — card surfaces */
-  --bg-card-hover: #1B3B5A;   /* Sahyadri Slate — hover state */
-  --bg-elevated:   #1B3B5A;   /* Elevated surface */
+  /* Backgrounds — Deep Obsidian / Slate Black */
+  --bg-primary:    #0A0B0E;   /* Deep obsidian black */
+  --bg-secondary:  #101218;   /* Slightly elevated dark stone */
+  --bg-card:       rgba(18, 21, 28, 0.7); /* Frosted obsidian glass */
+  --bg-card-hover: rgba(26, 31, 42, 0.85); /* Hover surface */
+  --bg-elevated:   #151821;   /* Solid elevated surface */
 
   /* Accent trio */
-  --accent:        #2EC27E;   /* Monsoon Green — brand primary */
-  --accent-dim:    #25a069;   /* Darker monsoon green */
-  --accent-muted:  rgba(46,194,126,0.25);
+  --accent:        #2EC27E;   /* Trail Green — brand primary */
+  --accent-dim:    #229961;   /* Deeper trail green */
+  --accent-muted:  rgba(46,194,126,0.18);
 
-  --highlight:     #38BDF8;   /* Waterfall Cyan — links & icons */
-  --highlight-dim: #0ea5e9;
+  --highlight:     #F1F5F9;   /* Crisp Slate White */
+  --highlight-dim: #94A3B8;
 
-  --cta:           #FB8500;   /* Sunset Orange — action CTAs */
-  --cta-dim:       #e07700;
+  --cta:           #2EC27E;   /* Consistent high-energy green */
+  --cta-dim:       #25a069;
 
   /* Text */
-  --text-primary:   #F1F5F9;  /* Cloud White */
+  --text-primary:   #F8FAFC;  /* Pure Cloud White */
   --text-secondary: #94A3B8;  /* Mist Gray */
-  --text-muted:     #475569;  /* Deep muted */
+  --text-muted:     #64748B;  /* Refined muted slate */
 
-  /* Borders */
-  --border:        rgba(56, 189, 248, 0.1);
-  --border-hover:  rgba(56, 189, 248, 0.25);
-  --border-card:   rgba(27, 59, 90, 0.8);
+  /* Borders — Hairline glass */
+  --border:        rgba(255, 255, 255, 0.08);
+  --border-hover:  rgba(46, 194, 126, 0.35);
+  --border-card:   rgba(255, 255, 255, 0.07);
 
   /* Fonts */
   --font-display: 'Bebas Neue', sans-serif;
@@ -166,40 +166,34 @@ body {
   background: #ff9410;
 }
 
-/* Outline — Waterfall Cyan border */
+/* Outline — Refined Glass border */
 .btn-outline {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 13px 32px;
-  background: transparent;
-  color: var(--highlight);
+  padding: 13px 30px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #F8FAFC;
   font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 15px;
-  border: 1.5px solid rgba(56, 189, 248, 0.4);
-  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 10px;
   cursor: pointer;
   transition: all 0.25s ease;
   text-decoration: none;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   position: relative;
   overflow: hidden;
 }
-.btn-outline::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--highlight);
-  transform: translateX(-101%);
-  transition: transform 0.3s ease;
-}
-.btn-outline:hover::before {
-  transform: translateX(0);
-}
 .btn-outline:hover {
-  color: #041a30;
-  border-color: var(--highlight);
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #FFFFFF;
   transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
 }
 .btn-outline span {
   position: relative;
@@ -210,14 +204,16 @@ body {
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border-card);
-  border-radius: 16px;
+  border-radius: 18px;
   overflow: hidden;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 48px rgba(56, 189, 248, 0.12);
-  border-color: rgba(56, 189, 248, 0.2);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5), 0 0 24px rgba(46, 194, 126, 0.08);
+  border-color: rgba(46, 194, 126, 0.3);
 }
 
 /* ─── FLOATING WHATSAPP ──────────────────────────────────────────────────── */
@@ -226,57 +222,21 @@ body {
   bottom: 24px;
   right: 24px;
   z-index: 1000;
-  width: 58px;
-  height: 58px;
-  background: linear-gradient(135deg, #2ecc71 0%, #25d366 50%, #1aab54 100%);
+  width: 56px;
+  height: 56px;
+  background: #25d366;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   text-decoration: none;
-  box-shadow:
-    0 4px 20px rgba(37, 211, 102, 0.55),
-    0 1px 0 rgba(255,255,255,0.35) inset,
-    0 -2px 6px rgba(0,0,0,0.3) inset;
-  animation: pulse-wa 3s ease-in-out infinite;
-  transition: transform 0.2s ease;
-}
-.whatsapp-fab::before {
-  content: '';
-  position: absolute;
-  top: 4px; left: 8px; right: 8px;
-  height: 40%;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.45), transparent);
-  border-radius: 50% 50% 0 0 / 60% 60% 0 0;
-  pointer-events: none;
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .whatsapp-fab:hover {
-  transform: scale(1.12);
-  box-shadow: 0 8px 36px rgba(37, 211, 102, 0.7), 0 1px 0 rgba(255,255,255,0.4) inset;
-}
-@keyframes pulse-wa {
-  0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.5), 0 1px 0 rgba(255,255,255,0.35) inset; }
-  50%       { box-shadow: 0 4px 48px rgba(37,211,102,0.85), 0 0 0 10px rgba(37,211,102,0.12), 0 1px 0 rgba(255,255,255,0.35) inset; }
-}
-
-/* ─── RAIN PARTICLES ─────────────────────────────────────────────────────── */
-.rain-container {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-.rain-drop {
-  position: absolute;
-  top: -20px;
-  width: 1px;
-  background: linear-gradient(to bottom, transparent, rgba(56, 189, 248, 0.15));
-  border-radius: 2px;
-  animation: rain-fall linear infinite;
-}
-@keyframes rain-fall {
-  to { transform: translateY(110vh); }
+  transform: scale(1.1);
+  box-shadow: 0 8px 32px rgba(37, 211, 102, 0.65);
 }
 
 /* ─── PRELOADER ──────────────────────────────────────────────────────────── */
@@ -314,25 +274,12 @@ body {
 }
 .seat-bar-fill.critical { background: #ef4444; }
 
-/* ─── TOPO MAP TEXTURE (subtle background pattern) ───────────────────────── */
+/* ─── TOPO MAP TEXTURE (refined ambient dark mesh) ───────────────────────── */
 .topo-texture {
   background-image:
-    radial-gradient(circle at 20% 80%, rgba(46,194,126,0.03) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(56,189,248,0.03) 0%, transparent 50%),
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 48px,
-      rgba(56,189,248,0.02) 48px,
-      rgba(56,189,248,0.02) 49px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      transparent,
-      transparent 48px,
-      rgba(56,189,248,0.02) 48px,
-      rgba(56,189,248,0.02) 49px
-    );
+    radial-gradient(circle at 50% 0%, rgba(46,194,126,0.04) 0%, transparent 60%),
+    radial-gradient(circle at 85% 60%, rgba(255,255,255,0.015) 0%, transparent 50%),
+    radial-gradient(circle at 15% 80%, rgba(46,194,126,0.02) 0%, transparent 40%);
 }
 
 /* ─── SCROLL REVEAL UTILITY ──────────────────────────────────────────────── */

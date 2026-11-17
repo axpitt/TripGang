@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react'
+﻿import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 import { getTripById, submitLead } from '../lib/firestore'
+import { defaultTrips } from '../components/ui/3-d-coverflow-carousel'
 import Navbar from '../components/ui/Navbar'
 
 // ─── I'm Interested Modal ───────────────────────────────────────────────────
@@ -30,7 +31,7 @@ const InterestedModal = ({ trip, onClose }) => {
   const inp = {
     background: '#081120', border: '1px solid rgba(56,189,248,0.15)',
     borderRadius: 8, padding: '10px 14px', width: '100%', boxSizing: 'border-box',
-    fontFamily: 'Space Grotesk, sans-serif', fontSize: 14, color: '#F1F5F9', outline: 'none',
+    fontFamily: 'Satoshi, sans-serif', fontSize: 14, color: '#F1F5F9', outline: 'none',
   }
 
   return (
@@ -66,10 +67,10 @@ const InterestedModal = ({ trip, onClose }) => {
         {status === 'success' ? (
           <div style={{ textAlign: 'center', padding: '20px 0' }}>
             <div style={{ fontSize: 52, marginBottom: 16 }}>🎉</div>
-            <h3 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 28, color: '#2EC27E', letterSpacing: 1, marginBottom: 12 }}>
+            <h3 style={{ fontFamily: 'Clash Display, sans-serif', fontSize: 28, color: '#2EC27E', letterSpacing: 1, marginBottom: 12 }}>
               We Got You!
             </h3>
-            <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 15, color: '#94A3B8', lineHeight: 1.7, marginBottom: 24 }}>
+            <p style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 15, color: '#94A3B8', lineHeight: 1.7, marginBottom: 24 }}>
               Thanks for expressing interest in <strong style={{ color: '#F1F5F9' }}>{trip.name}</strong>. Arpit will reach out personally when the next trip is announced.
             </p>
             <button onClick={onClose} className="btn-cta" style={{ width: '100%', justifyContent: 'center' }}>Done</button>
@@ -78,41 +79,41 @@ const InterestedModal = ({ trip, onClose }) => {
           <>
             <div style={{ marginBottom: 24 }}>
               <span className="badge badge-accent" style={{ marginBottom: 12 }}>I'm Interested</span>
-              <h3 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 26, color: '#F1F5F9', letterSpacing: 1, marginBottom: 8 }}>
+              <h3 style={{ fontFamily: 'Clash Display, sans-serif', fontSize: 26, color: '#F1F5F9', letterSpacing: 1, marginBottom: 8 }}>
                 {trip.name}
               </h3>
-              <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, color: '#94A3B8', lineHeight: 1.6 }}>
+              <p style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 14, color: '#94A3B8', lineHeight: 1.6 }}>
                 Can't make it this time? Leave your info and we'll personally notify you for future trips. 🏔️
               </p>
             </div>
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
-                  <label style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 11, color: '#94A3B8', letterSpacing: 1.5, textTransform: 'uppercase' }}>Your Name *</label>
+                  <label style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 11, color: '#94A3B8', letterSpacing: 1.5, textTransform: 'uppercase' }}>Your Name *</label>
                   <input style={inp} required placeholder="Rahul Sharma" value={form.name} onChange={e => set('name', e.target.value)} />
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
-                  <label style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 11, color: '#94A3B8', letterSpacing: 1.5, textTransform: 'uppercase' }}>Phone *</label>
+                  <label style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 11, color: '#94A3B8', letterSpacing: 1.5, textTransform: 'uppercase' }}>Phone *</label>
                   <input style={inp} required type="tel" placeholder="9876543210" value={form.phone} onChange={e => set('phone', e.target.value)} />
                 </div>
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
-                <label style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 11, color: '#94A3B8', letterSpacing: 1.5, textTransform: 'uppercase' }}>Your City</label>
+                <label style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 11, color: '#94A3B8', letterSpacing: 1.5, textTransform: 'uppercase' }}>Your City</label>
                 <input style={inp} placeholder="Aurangabad, Pune..." value={form.city} onChange={e => set('city', e.target.value)} />
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
-                <label style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 11, color: '#94A3B8', letterSpacing: 1.5, textTransform: 'uppercase' }}>Message (optional)</label>
+                <label style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 11, color: '#94A3B8', letterSpacing: 1.5, textTransform: 'uppercase' }}>Message (optional)</label>
                 <textarea style={{ ...inp, resize: 'vertical', minHeight: 80 }}
                   placeholder="e.g. Interested but can't join this date. Please notify me next time!"
                   value={form.message} onChange={e => set('message', e.target.value)} />
               </div>
               {status === 'duplicate' && (
-                <div style={{ background: 'rgba(251,133,0,0.1)', border: '1px solid rgba(251,133,0,0.3)', borderRadius: 8, padding: '10px 14px', fontFamily: 'Space Grotesk, sans-serif', fontSize: 13, color: '#FB8500' }}>
+                <div style={{ background: 'rgba(251,133,0,0.1)', border: '1px solid rgba(251,133,0,0.3)', borderRadius: 8, padding: '10px 14px', fontFamily: 'Satoshi, sans-serif', fontSize: 13, color: '#FB8500' }}>
                   You've already expressed interest in this trip. We have your details! 📝
                 </div>
               )}
               {status === 'error' && (
-                <div style={{ background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)', borderRadius: 8, padding: '10px 14px', fontFamily: 'Space Grotesk, sans-serif', fontSize: 13, color: '#f87171' }}>
+                <div style={{ background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)', borderRadius: 8, padding: '10px 14px', fontFamily: 'Satoshi, sans-serif', fontSize: 13, color: '#f87171' }}>
                   Something went wrong. Please WhatsApp us directly.
                 </div>
               )}
@@ -145,22 +146,58 @@ const TripDetail = () => {
 
   useEffect(() => {
     getTripById(tripId).then(data => {
-      if (!data) setNotFound(true)
-      else setTrip(data)
+      if (!data) {
+        const fallback = defaultTrips.find(t => t.id === tripId)
+        if (fallback) {
+          setTrip({
+            id: fallback.id,
+            name: fallback.titleLine1 + ' ' + (fallback.titleLine2 || ''),
+            destination: fallback.titleLine2 || 'Maharashtra',
+            duration: fallback.duration,
+            distance: fallback.distance,
+            difficulty: fallback.difficulty,
+            type: fallback.tag?.replace(/[^a-zA-Z &]/g, '').trim() || 'Adventure',
+            heroImage: fallback.img,
+            earlyBirdPrice: parseInt(fallback.price?.replace(/[^\d]/g, '') || 1499),
+            regularPrice: fallback.originalPrice ? parseInt(fallback.originalPrice.replace(/[^\d]/g, '') || 1999) : null,
+            status: 'open',
+            desc: fallback.desc,
+            photos: [fallback.img],
+            itinerary: [
+              { day: 1, title: 'Road Trip Departure & Base Camp Arrival', description: 'Early morning pickup. Scenic drive through Western Ghats with roadside breakfast. Reach base, explore viewpoints, campfire evening & music.' },
+              { day: 2, title: 'Sunrise Exploration & Return', description: 'Sunrise trail, local breakfast, sightseeing, group memories & evening journey back.' },
+            ],
+            thingsToPack: [
+              'Trekking or comfortable walking shoes',
+              'Warm hoodie / jacket for night',
+              '2L reusable water bottle',
+              'Valid government ID & personal medicine'
+            ],
+            thingsToAvoid: [
+              'No littering / single-use plastics on trail',
+              'No alcohol / intoxicating substances during transit'
+            ],
+          })
+        } else {
+          setNotFound(true)
+        }
+      } else {
+        setTrip(data)
+      }
       setLoading(false)
     }).catch(() => { setNotFound(true); setLoading(false) })
   }, [tripId])
 
   if (loading) return (
     <div style={{ background: '#081120', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      <div style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 32, color: '#2EC27E', letterSpacing: 4 }}>LOADING…</div>
+      <div style={{ fontFamily: 'Clash Display, sans-serif', fontSize: 32, color: '#2EC27E', letterSpacing: 4 }}>LOADING…</div>
     </div>
   )
 
   if (notFound) return (
     <div style={{ background: '#081120', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 20 }}>
       <div style={{ fontSize: 48 }}>🏔️</div>
-      <div style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 36, color: '#F1F5F9', letterSpacing: 2 }}>Trip Not Found</div>
+      <div style={{ fontFamily: 'Clash Display, sans-serif', fontSize: 36, color: '#F1F5F9', letterSpacing: 2 }}>Trip Not Found</div>
       <Link to="/" className="btn-outline"><span>← Back to Home</span></Link>
     </div>
   )
@@ -197,11 +234,11 @@ const TripDetail = () => {
           <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: 'clamp(24px,5vw,60px)' }}>
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}>
               <div style={{ display: 'flex', gap: 10, marginBottom: 16, flexWrap: 'wrap' }}>
-                <span style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 11, fontWeight: 700, padding: '4px 14px', borderRadius: 100, background: diffColor[trip.difficulty] || '#2EC27E', color: trip.difficulty === 'Hard' ? '#fff' : '#041a10' }}>{trip.difficulty}</span>
+                <span style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 11, fontWeight: 700, padding: '4px 14px', borderRadius: 100, background: diffColor[trip.difficulty] || '#2EC27E', color: trip.difficulty === 'Hard' ? '#fff' : '#041a10' }}>{trip.difficulty}</span>
                 <span className="badge badge-info">{trip.type}</span>
                 {trip.status === 'full' && <span className="badge badge-cta">FULL</span>}
               </div>
-              <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 'clamp(36px, 6vw, 80px)', color: '#F1F5F9', lineHeight: 1, letterSpacing: 1, marginBottom: 12 }}>
+              <h1 style={{ fontFamily: 'Clash Display, sans-serif', fontSize: 'clamp(36px, 6vw, 80px)', color: '#F1F5F9', lineHeight: 1, letterSpacing: 1, marginBottom: 12 }}>
                 {trip.name}
               </h1>
               <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
@@ -211,7 +248,7 @@ const TripDetail = () => {
                   { icon: '🕐', text: trip.duration },
                   { icon: '📏', text: trip.distance },
                 ].filter(m => m.text).map(({ icon, text }) => (
-                  <span key={text} style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 14, color: 'rgba(241,245,249,0.8)', display: 'flex', alignItems: 'center', gap: 6 }}>
+                  <span key={text} style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 14, color: 'rgba(241,245,249,0.8)', display: 'flex', alignItems: 'center', gap: 6 }}>
                     {icon} {text}
                   </span>
                 ))}
@@ -230,7 +267,7 @@ const TripDetail = () => {
               {/* ── TRIP PHOTOS ── */}
               {photos.length > 0 && (
                 <motion.section initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
-                  <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 'clamp(28px, 4vw, 44px)', color: '#F1F5F9', letterSpacing: 1, marginBottom: 24 }}>
+                  <h2 style={{ fontFamily: 'Clash Display, sans-serif', fontSize: 'clamp(28px, 4vw, 44px)', color: '#F1F5F9', letterSpacing: 1, marginBottom: 24 }}>
                     TRIP <span style={{ color: '#38BDF8' }}>PHOTOS</span>
                   </h2>
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 10 }}>
@@ -250,10 +287,10 @@ const TripDetail = () => {
               {/* ── YOUTUBE REFERENCE ── */}
               {ytId && (
                 <motion.section initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.8 }}>
-                  <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 'clamp(28px, 4vw, 44px)', color: '#F1F5F9', letterSpacing: 1, marginBottom: 8 }}>
+                  <h2 style={{ fontFamily: 'Clash Display, sans-serif', fontSize: 'clamp(28px, 4vw, 44px)', color: '#F1F5F9', letterSpacing: 1, marginBottom: 8 }}>
                     DESTINATION <span style={{ color: '#2EC27E' }}>PREVIEW</span>
                   </h2>
-                  <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, color: '#94A3B8', marginBottom: 20 }}>
+                  <p style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 14, color: '#94A3B8', marginBottom: 20 }}>
                     Watch this before your trip for a feel of the destination.
                   </p>
                   <div style={{ borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(56,189,248,0.12)', aspectRatio: '16/9' }}>
@@ -271,7 +308,7 @@ const TripDetail = () => {
               {/* ── ITINERARY ── */}
               {itinerary.length > 0 && (
                 <motion.section initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.8 }}>
-                  <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 'clamp(28px, 4vw, 44px)', color: '#F1F5F9', letterSpacing: 1, marginBottom: 28 }}>
+                  <h2 style={{ fontFamily: 'Clash Display, sans-serif', fontSize: 'clamp(28px, 4vw, 44px)', color: '#F1F5F9', letterSpacing: 1, marginBottom: 28 }}>
                     FULL <span style={{ color: '#2EC27E' }}>ITINERARY</span>
                   </h2>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
@@ -289,17 +326,17 @@ const TripDetail = () => {
                         )}
                         {/* Day circle */}
                         <div style={{ width: 40, height: 40, borderRadius: '50%', background: 'rgba(46,194,126,0.1)', border: '1px solid rgba(46,194,126,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                          <span style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 14, color: '#2EC27E' }}>
+                          <span style={{ fontFamily: 'Clash Display, sans-serif', fontSize: 14, color: '#2EC27E' }}>
                             {item.day || i + 1}
                           </span>
                         </div>
                         <div style={{ paddingTop: 8 }}>
                           {item.title && (
-                            <div style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: 16, color: '#F1F5F9', marginBottom: 6 }}>
+                            <div style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 700, fontSize: 16, color: '#F1F5F9', marginBottom: 6 }}>
                               {item.title}
                             </div>
                           )}
-                          <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, color: '#94A3B8', lineHeight: 1.7 }}>
+                          <p style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 14, color: '#94A3B8', lineHeight: 1.7 }}>
                             {item.description || item}
                           </p>
                         </div>
@@ -315,14 +352,14 @@ const TripDetail = () => {
                   <div style={{ display: 'grid', gridTemplateColumns: thingsToPack.length > 0 && thingsToAvoid.length > 0 ? '1fr 1fr' : '1fr', gap: 24 }} className="pack-grid">
                     {thingsToPack.length > 0 && (
                       <div style={{ background: 'rgba(46,194,126,0.04)', border: '1px solid rgba(46,194,126,0.12)', borderRadius: 16, padding: 24 }}>
-                        <h3 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 26, color: '#2EC27E', letterSpacing: 1, marginBottom: 20 }}>
+                        <h3 style={{ fontFamily: 'Clash Display, sans-serif', fontSize: 26, color: '#2EC27E', letterSpacing: 1, marginBottom: 20 }}>
                           ✅ THINGS TO PACK
                         </h3>
                         <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 10 }}>
                           {thingsToPack.map((item, i) => (
                             <li key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
                               <span style={{ color: '#2EC27E', fontSize: 14, marginTop: 2, flexShrink: 0 }}>✓</span>
-                              <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, color: '#94A3B8', lineHeight: 1.5 }}>{item}</span>
+                              <span style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 14, color: '#94A3B8', lineHeight: 1.5 }}>{item}</span>
                             </li>
                           ))}
                         </ul>
@@ -330,14 +367,14 @@ const TripDetail = () => {
                     )}
                     {thingsToAvoid.length > 0 && (
                       <div style={{ background: 'rgba(239,68,68,0.04)', border: '1px solid rgba(239,68,68,0.12)', borderRadius: 16, padding: 24 }}>
-                        <h3 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 26, color: '#ef4444', letterSpacing: 1, marginBottom: 20 }}>
+                        <h3 style={{ fontFamily: 'Clash Display, sans-serif', fontSize: 26, color: '#ef4444', letterSpacing: 1, marginBottom: 20 }}>
                           ❌ THINGS TO AVOID
                         </h3>
                         <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 10 }}>
                           {thingsToAvoid.map((item, i) => (
                             <li key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
                               <span style={{ color: '#ef4444', fontSize: 14, marginTop: 2, flexShrink: 0 }}>✗</span>
-                              <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, color: '#94A3B8', lineHeight: 1.5 }}>{item}</span>
+                              <span style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 14, color: '#94A3B8', lineHeight: 1.5 }}>{item}</span>
                             </li>
                           ))}
                         </ul>
@@ -361,11 +398,11 @@ const TripDetail = () => {
                 <div>
                   {trip.earlyBirdPrice && (
                     <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 4 }}>
-                      <span style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 32, fontWeight: 700, color: '#2EC27E' }}>
+                      <span style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 32, fontWeight: 700, color: '#2EC27E' }}>
                         ₹{trip.earlyBirdPrice.toLocaleString()}
                       </span>
                       {trip.regularPrice > trip.earlyBirdPrice && (
-                        <span style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 16, color: '#475569', textDecoration: 'line-through' }}>
+                        <span style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 16, color: '#475569', textDecoration: 'line-through' }}>
                           ₹{trip.regularPrice?.toLocaleString()}
                         </span>
                       )}
@@ -387,8 +424,8 @@ const TripDetail = () => {
                     { icon: '💺', label: 'Seats Left', val: `${Math.max(0, (trip.maxSeats || 0) - (trip.seatsBooked || 0))} / ${trip.maxSeats}` },
                   ].filter(r => r.val).map(({ icon, label, val }) => (
                     <div key={label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                      <span style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 12, color: '#475569' }}>{icon} {label}</span>
-                      <span style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 12, fontWeight: 600, color: '#94A3B8', textAlign: 'right', maxWidth: '55%' }}>{val}</span>
+                      <span style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 12, color: '#475569' }}>{icon} {label}</span>
+                      <span style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 12, fontWeight: 600, color: '#94A3B8', textAlign: 'right', maxWidth: '55%' }}>{val}</span>
                     </div>
                   ))}
                 </div>
@@ -398,8 +435,8 @@ const TripDetail = () => {
                 {/* Seat progress bar */}
                 <div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6 }}>
-                    <span style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 11, color: '#475569' }}>Booking progress</span>
-                    <span style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 11, fontWeight: 700, color: '#2EC27E' }}>
+                    <span style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 11, color: '#475569' }}>Booking progress</span>
+                    <span style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 11, fontWeight: 700, color: '#2EC27E' }}>
                       {trip.seatsBooked}/{trip.maxSeats}
                     </span>
                   </div>
@@ -428,7 +465,7 @@ const TripDetail = () => {
                   🙋 I'm Interested (can't join now)
                 </button>
 
-                <Link to="/#trips" style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, color: '#475569', textAlign: 'center', textDecoration: 'none', marginTop: 4 }}
+                <Link to="/#trips" style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 13, color: '#475569', textAlign: 'center', textDecoration: 'none', marginTop: 4 }}
                   onMouseEnter={e => e.target.style.color = '#38BDF8'}
                   onMouseLeave={e => e.target.style.color = '#475569'}
                 >
@@ -486,3 +523,6 @@ const TripDetail = () => {
 }
 
 export default TripDetail
+
+
+

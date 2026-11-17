@@ -15,7 +15,7 @@ const Preloader = ({ onComplete }) => {
     setPhase('exit')
     setTimeout(() => {
       onComplete?.()
-    }, 600)
+    }, 800)
   }
 
   // Auto-play attempt on mount
@@ -56,8 +56,8 @@ const Preloader = ({ onComplete }) => {
         <motion.div
           key="video-preloader"
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, scale: 1.02 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          exit={{ opacity: 0, scale: 1.04, filter: 'blur(4px)' }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           style={{
             position: 'fixed',
             inset: 0,
@@ -69,16 +69,13 @@ const Preloader = ({ onComplete }) => {
             overflow: 'hidden',
           }}
         >
-          {/* Main Preloader Video */}
+          {/* Main Preloader Video — Fullscreen Cover */}
           <div style={{
-            position: 'relative',
+            position: 'absolute',
+            inset: 0,
             width: '100%',
             height: '100%',
-            maxWidth: 1280,
-            maxHeight: '100vh',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
+            overflow: 'hidden',
           }}>
             <video
               ref={videoRef}
@@ -93,7 +90,8 @@ const Preloader = ({ onComplete }) => {
               style={{
                 width: '100%',
                 height: '100%',
-                objectFit: 'contain',
+                objectFit: 'cover',
+                objectPosition: 'center',
                 display: 'block',
               }}
             />
@@ -118,7 +116,7 @@ const Preloader = ({ onComplete }) => {
                 borderRadius: 20,
                 padding: '6px 14px',
                 cursor: 'pointer',
-                fontFamily: 'Space Grotesk, sans-serif',
+                fontFamily: 'Satoshi, sans-serif',
                 fontSize: 12,
                 color: '#1e293b',
                 display: 'flex',
@@ -140,7 +138,7 @@ const Preloader = ({ onComplete }) => {
                 borderRadius: 20,
                 padding: '7px 18px',
                 cursor: 'pointer',
-                fontFamily: 'Space Grotesk, sans-serif',
+                fontFamily: 'Satoshi, sans-serif',
                 fontSize: 12,
                 fontWeight: 600,
                 color: '#F1F5F9',
@@ -180,3 +178,6 @@ const Preloader = ({ onComplete }) => {
 }
 
 export default Preloader
+
+
+

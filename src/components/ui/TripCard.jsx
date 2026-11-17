@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import useCountdown from '../../hooks/useCountdown'
@@ -17,7 +17,7 @@ const CountdownTimer = ({ deadline, earlyPrice, regularPrice }) => {
   if (isExpired) return (
     <div style={{ marginBottom: 16 }}>
       <span style={{
-        fontFamily: 'Space Grotesk, sans-serif',
+        fontFamily: 'Satoshi, sans-serif',
         fontSize: 28, fontWeight: 700, color: '#F1F5F9',
       }}>₹{regularPrice?.toLocaleString()}</span>
     </div>
@@ -27,13 +27,13 @@ const CountdownTimer = ({ deadline, earlyPrice, regularPrice }) => {
     <div style={{ marginBottom: 16 }}>
       <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 10 }}>
         <span style={{
-          fontFamily: 'Space Grotesk, sans-serif',
+          fontFamily: 'Satoshi, sans-serif',
           fontSize: 28, fontWeight: 700, color: '#2EC27E',
         }}>
           ₹{earlyPrice?.toLocaleString()}
         </span>
         <span style={{
-          fontFamily: 'Space Grotesk, sans-serif',
+          fontFamily: 'Satoshi, sans-serif',
           fontSize: 16, color: '#475569',
           textDecoration: 'line-through',
         }}>
@@ -55,24 +55,24 @@ const CountdownTimer = ({ deadline, earlyPrice, regularPrice }) => {
           <div key={l} style={{ display: 'flex', alignItems: 'center', gap: i < 3 ? 6 : 0 }}>
             <div style={{ textAlign: 'center' }}>
               <div style={{
-                fontFamily: 'Space Mono, monospace',
+                fontFamily: 'JetBrains Mono, monospace',
                 fontSize: 20, color: '#F1F5F9',
-                background: '#081120',
-                border: '1px solid rgba(56,189,248,0.15)',
+                background: '#0A0B0E',
+                border: '1px solid rgba(255,255,255,0.12)',
                 borderRadius: 6, padding: '2px 8px', minWidth: 34, lineHeight: 1.5,
               }}>
                 {String(v).padStart(2, '0')}
               </div>
               <div style={{
-                fontFamily: 'Space Grotesk, sans-serif',
-                fontSize: 9, color: '#475569', letterSpacing: 1, marginTop: 2,
+                fontFamily: 'Satoshi, sans-serif',
+                fontSize: 9, color: '#94A3B8', letterSpacing: 1, marginTop: 2,
               }}>{l}</div>
             </div>
-            {i < 3 && <span style={{ color: '#38BDF8', fontSize: 16, fontWeight: 700, marginBottom: 14 }}>:</span>}
+            {i < 3 && <span style={{ color: '#2EC27E', fontSize: 16, fontWeight: 700, marginBottom: 14 }}>:</span>}
           </div>
         ))}
         <span style={{
-          fontFamily: 'Space Grotesk, sans-serif', fontSize: 10,
+          fontFamily: 'Satoshi, sans-serif', fontSize: 10,
           color: '#FB8500', marginLeft: 4, fontWeight: 600,
         }}>
           early bird
@@ -111,7 +111,7 @@ const InterestedModal = ({ trip, onClose }) => {
   const inp = {
     background: '#081120', border: '1px solid rgba(56,189,248,0.15)',
     borderRadius: 8, padding: '10px 14px', width: '100%', boxSizing: 'border-box',
-    fontFamily: 'Space Grotesk, sans-serif', fontSize: 14, color: '#F1F5F9', outline: 'none',
+    fontFamily: 'Satoshi, sans-serif', fontSize: 14, color: '#F1F5F9', outline: 'none',
   }
 
   return (
@@ -156,10 +156,10 @@ const InterestedModal = ({ trip, onClose }) => {
           {status === 'success' ? (
             <div style={{ textAlign: 'center', padding: '20px 0' }}>
               <div style={{ fontSize: 52, marginBottom: 16 }}>🎉</div>
-              <h3 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 28, color: '#2EC27E', letterSpacing: 1, marginBottom: 12 }}>
+              <h3 style={{ fontFamily: 'Clash Display, sans-serif', fontSize: 28, color: '#2EC27E', letterSpacing: 1, marginBottom: 12 }}>
                 We Got You!
               </h3>
-              <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 15, color: '#94A3B8', lineHeight: 1.7, marginBottom: 24 }}>
+              <p style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 15, color: '#94A3B8', lineHeight: 1.7, marginBottom: 24 }}>
                 Thanks for expressing interest in <strong style={{ color: '#F1F5F9' }}>{trip.name}</strong>. Arpit will reach out personally when the next trip is announced.
               </p>
               <button onClick={onClose} className="btn-cta" style={{ width: '100%', justifyContent: 'center' }}>
@@ -171,10 +171,10 @@ const InterestedModal = ({ trip, onClose }) => {
               {/* Header */}
               <div style={{ marginBottom: 24 }}>
                 <span className="badge badge-accent" style={{ marginBottom: 12 }}>I'm Interested</span>
-                <h3 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 26, color: '#F1F5F9', letterSpacing: 1, marginBottom: 8 }}>
+                <h3 style={{ fontFamily: 'Clash Display, sans-serif', fontSize: 26, color: '#F1F5F9', letterSpacing: 1, marginBottom: 8 }}>
                   {trip.name}
                 </h3>
-                <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, color: '#94A3B8', lineHeight: 1.6 }}>
+                <p style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 14, color: '#94A3B8', lineHeight: 1.6 }}>
                   Can't make it this time? No worries — leave your info and we'll personally notify you for the next one. 🏔️
                 </p>
               </div>
@@ -182,7 +182,7 @@ const InterestedModal = ({ trip, onClose }) => {
               <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
-                    <label style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 11, color: '#94A3B8', letterSpacing: 1.5, textTransform: 'uppercase' }}>Your Name *</label>
+                    <label style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 11, color: '#94A3B8', letterSpacing: 1.5, textTransform: 'uppercase' }}>Your Name *</label>
                     <input
                       style={inp} required
                       placeholder="Rahul Sharma"
@@ -190,7 +190,7 @@ const InterestedModal = ({ trip, onClose }) => {
                     />
                   </div>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
-                    <label style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 11, color: '#94A3B8', letterSpacing: 1.5, textTransform: 'uppercase' }}>Phone *</label>
+                    <label style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 11, color: '#94A3B8', letterSpacing: 1.5, textTransform: 'uppercase' }}>Phone *</label>
                     <input
                       style={inp} required type="tel"
                       placeholder="9876543210"
@@ -199,7 +199,7 @@ const InterestedModal = ({ trip, onClose }) => {
                   </div>
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
-                  <label style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 11, color: '#94A3B8', letterSpacing: 1.5, textTransform: 'uppercase' }}>Your City</label>
+                  <label style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 11, color: '#94A3B8', letterSpacing: 1.5, textTransform: 'uppercase' }}>Your City</label>
                   <input
                     style={inp}
                     placeholder="Aurangabad, Pune..."
@@ -207,7 +207,7 @@ const InterestedModal = ({ trip, onClose }) => {
                   />
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
-                  <label style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 11, color: '#94A3B8', letterSpacing: 1.5, textTransform: 'uppercase' }}>Message (optional)</label>
+                  <label style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 11, color: '#94A3B8', letterSpacing: 1.5, textTransform: 'uppercase' }}>Message (optional)</label>
                   <textarea
                     style={{ ...inp, resize: 'vertical', minHeight: 80 }}
                     placeholder="e.g. I'm interested but can't join this date. Please let me know for future trips!"
@@ -216,12 +216,12 @@ const InterestedModal = ({ trip, onClose }) => {
                 </div>
 
                 {status === 'duplicate' && (
-                  <div style={{ background: 'rgba(251,133,0,0.1)', border: '1px solid rgba(251,133,0,0.3)', borderRadius: 8, padding: '10px 14px', fontFamily: 'Space Grotesk, sans-serif', fontSize: 13, color: '#FB8500' }}>
+                  <div style={{ background: 'rgba(251,133,0,0.1)', border: '1px solid rgba(251,133,0,0.3)', borderRadius: 8, padding: '10px 14px', fontFamily: 'Satoshi, sans-serif', fontSize: 13, color: '#FB8500' }}>
                     You've already expressed interest in this trip. We have your details! 📝
                   </div>
                 )}
                 {status === 'error' && (
-                  <div style={{ background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)', borderRadius: 8, padding: '10px 14px', fontFamily: 'Space Grotesk, sans-serif', fontSize: 13, color: '#f87171' }}>
+                  <div style={{ background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)', borderRadius: 8, padding: '10px 14px', fontFamily: 'Satoshi, sans-serif', fontSize: 13, color: '#f87171' }}>
                     Something went wrong. Please try again or WhatsApp us directly.
                   </div>
                 )}
@@ -255,19 +255,20 @@ const TripCard = ({ trip, index }) => {
   return (
     <>
       <motion.div
-        whileHover={!isFull ? { y: -8, boxShadow: '0 20px 48px rgba(56,189,248,0.12)' } : {}}
+        whileHover={!isFull ? { y: -6, boxShadow: '0 20px 48px rgba(0,0,0,0.5), 0 0 24px rgba(46,194,126,0.1)' } : {}}
         style={{
-          background: '#102A43',
-          border: '1px solid rgba(27,59,90,0.9)',
+          background: 'rgba(18, 21, 28, 0.75)',
+          border: '1px solid rgba(255, 255, 255, 0.08)',
           borderRadius: 20, overflow: 'hidden',
           filter: isFull ? 'grayscale(0.6)' : 'none',
+          backdropFilter: 'blur(16px)',
           transition: 'transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease',
           display: 'flex', flexDirection: 'column',
         }}
         onHoverStart={e => {
           if (!isFull) {
             e.target.closest?.('[data-card]')?.style &&
-            (e.target.closest('[data-card]').style.borderColor = 'rgba(56,189,248,0.25)')
+            (e.target.closest('[data-card]').style.borderColor = 'rgba(46,194,126,0.3)')
           }
         }}
       >
@@ -291,7 +292,7 @@ const TripCard = ({ trip, index }) => {
             <div style={{ textAlign: 'center' }}>
               <div style={{ fontSize: 48 }}>🏔️</div>
               <div style={{
-                fontFamily: 'Space Grotesk, sans-serif',
+                fontFamily: 'Satoshi, sans-serif',
                 fontSize: 12, color: '#475569', marginTop: 8,
               }}>Photo coming soon</div>
             </div>
@@ -300,7 +301,7 @@ const TripCard = ({ trip, index }) => {
           {/* Badges */}
           <div style={{ position: 'absolute', top: 14, left: 14, display: 'flex', gap: 8 }}>
             <span style={{
-              fontFamily: 'Space Grotesk, sans-serif', fontSize: 10, fontWeight: 700,
+              fontFamily: 'Satoshi, sans-serif', fontSize: 10, fontWeight: 700,
               padding: '4px 12px', borderRadius: 100, letterSpacing: 0.5,
               background: difficultyColor[trip.difficulty] || '#2EC27E',
               color: trip.difficulty === 'Hard' ? '#fff' : '#041a10',
@@ -308,7 +309,7 @@ const TripCard = ({ trip, index }) => {
               {trip.difficulty}
             </span>
             <span style={{
-              fontFamily: 'Space Grotesk, sans-serif', fontSize: 10, fontWeight: 600,
+              fontFamily: 'Satoshi, sans-serif', fontSize: 10, fontWeight: 600,
               padding: '4px 12px', borderRadius: 100,
               background: 'rgba(8,17,32,0.85)', color: '#94A3B8',
               border: '1px solid rgba(56,189,248,0.12)',
@@ -324,7 +325,7 @@ const TripCard = ({ trip, index }) => {
               display: 'flex', alignItems: 'center', justifyContent: 'center',
             }}>
               <span style={{
-                fontFamily: 'Bebas Neue, sans-serif', fontSize: 32,
+                fontFamily: 'Clash Display, sans-serif', fontSize: 32,
                 color: '#F1F5F9', letterSpacing: 4,
                 border: '2px solid rgba(241,245,249,0.6)', padding: '4px 20px',
               }}>FULL</span>
@@ -336,7 +337,7 @@ const TripCard = ({ trip, index }) => {
         <div style={{ padding: 24, flex: 1, display: 'flex', flexDirection: 'column', gap: 12 }}>
           {/* Date */}
           <div style={{
-            fontFamily: 'Space Grotesk, sans-serif', fontSize: 11,
+            fontFamily: 'Satoshi, sans-serif', fontSize: 11,
             color: '#38BDF8', fontWeight: 600,
             letterSpacing: 2, textTransform: 'uppercase',
           }}>
@@ -346,7 +347,7 @@ const TripCard = ({ trip, index }) => {
           </div>
 
           <h3 style={{
-            fontFamily: 'Space Grotesk, sans-serif', fontSize: 20,
+            fontFamily: 'Satoshi, sans-serif', fontSize: 20,
             fontWeight: 700, color: '#F1F5F9', lineHeight: 1.3,
           }}>
             {trip.name}
@@ -360,7 +361,7 @@ const TripCard = ({ trip, index }) => {
               { icon: '📏', text: trip.distance },
             ].filter(m => m.text).map(({ icon, text }) => (
               <span key={text} style={{
-                fontFamily: 'Inter, sans-serif', fontSize: 12, color: '#94A3B8',
+                fontFamily: 'Satoshi, sans-serif', fontSize: 12, color: '#94A3B8',
                 display: 'flex', alignItems: 'center', gap: 4,
               }}>
                 {icon} {text}
@@ -379,10 +380,10 @@ const TripCard = ({ trip, index }) => {
           <div>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6 }}>
               <span style={{
-                fontFamily: 'Space Grotesk, sans-serif', fontSize: 11, color: '#475569',
+                fontFamily: 'Satoshi, sans-serif', fontSize: 11, color: '#475569',
               }}>Seats left</span>
               <span style={{
-                fontFamily: 'Space Grotesk, sans-serif', fontSize: 11, fontWeight: 700,
+                fontFamily: 'Satoshi, sans-serif', fontSize: 11, fontWeight: 700,
                 color: isCritical ? '#ef4444' : '#2EC27E',
               }}>
                 {seatsLeft} / {trip.maxSeats}
@@ -437,7 +438,7 @@ const TripCard = ({ trip, index }) => {
                     width: '100%', background: 'rgba(46,194,126,0.07)',
                     border: '1px solid rgba(46,194,126,0.2)',
                     borderRadius: 8, padding: '9px', color: '#2EC27E',
-                    fontFamily: 'Space Grotesk, sans-serif', fontSize: 13, fontWeight: 600,
+                    fontFamily: 'Satoshi, sans-serif', fontSize: 13, fontWeight: 600,
                     cursor: 'pointer', transition: 'all 0.2s',
                   }}
                   onMouseEnter={e => { e.currentTarget.style.background = 'rgba(46,194,126,0.15)' }}
@@ -460,3 +461,6 @@ const TripCard = ({ trip, index }) => {
 }
 
 export default TripCard
+
+
+

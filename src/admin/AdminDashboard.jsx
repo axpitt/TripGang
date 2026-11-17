@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useAdminAuth } from './useAdminAuth'
 import TripsTab from './tabs/TripsTab'
@@ -25,7 +25,7 @@ const AdminDashboard = () => {
     <div style={{
       minHeight: '100vh', background: '#081120',
       display: 'flex', flexDirection: 'column',
-      fontFamily: 'Space Grotesk, sans-serif',
+      fontFamily: 'Satoshi, sans-serif',
     }}>
 
       {/* ── Top Bar ────────────────────────────────────────────── */}
@@ -49,10 +49,10 @@ const AdminDashboard = () => {
               border: '1.5px solid rgba(46,194,126,0.5)',
             }}
           />
-          <div style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 24, letterSpacing: 3, lineHeight: 1 }}>
+          <div style={{ fontFamily: 'Clash Display, sans-serif', fontSize: 24, letterSpacing: 3, lineHeight: 1 }}>
             <span style={{ color: '#F1F5F9' }}>TRIP</span>
             <span style={{ color: '#2EC27E' }}>GANG</span>
-            <span style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 10, color: '#475569', letterSpacing: 2, marginLeft: 10, textTransform: 'uppercase', verticalAlign: 'middle' }}>Admin</span>
+            <span style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 10, color: '#475569', letterSpacing: 2, marginLeft: 10, textTransform: 'uppercase', verticalAlign: 'middle' }}>Admin</span>
           </div>
         </div>
 
@@ -63,7 +63,7 @@ const AdminDashboard = () => {
               background: active === tab.id ? 'rgba(46,194,126,0.12)' : 'transparent',
               border: active === tab.id ? '1px solid rgba(46,194,126,0.25)' : '1px solid transparent',
               borderRadius: 8, padding: '7px 16px', cursor: 'pointer',
-              fontFamily: 'Space Grotesk, sans-serif', fontSize: 13, fontWeight: active === tab.id ? 700 : 400,
+              fontFamily: 'Satoshi, sans-serif', fontSize: 13, fontWeight: active === tab.id ? 700 : 400,
               color: active === tab.id ? '#2EC27E' : '#94A3B8',
               transition: 'all 0.2s', display: 'flex', alignItems: 'center', gap: 6,
             }}>
@@ -78,7 +78,7 @@ const AdminDashboard = () => {
           <button onClick={signOut} style={{
             background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)',
             borderRadius: 8, padding: '7px 14px', cursor: 'pointer',
-            fontFamily: 'Space Grotesk, sans-serif', fontSize: 12, color: '#f87171',
+            fontFamily: 'Satoshi, sans-serif', fontSize: 12, color: '#f87171',
             transition: 'all 0.2s',
           }}>Sign Out</button>
           {/* Mobile menu button */}
@@ -105,7 +105,7 @@ const AdminDashboard = () => {
                 display: 'flex', width: '100%', alignItems: 'center', gap: 10,
                 background: active === tab.id ? 'rgba(46,194,126,0.1)' : 'transparent',
                 border: 'none', padding: '14px 24px', cursor: 'pointer',
-                fontFamily: 'Space Grotesk, sans-serif', fontSize: 14,
+                fontFamily: 'Satoshi, sans-serif', fontSize: 14,
                 color: active === tab.id ? '#2EC27E' : '#94A3B8',
                 borderLeft: active === tab.id ? '3px solid #2EC27E' : '3px solid transparent',
               }}>
@@ -146,3 +146,6 @@ const AdminDashboard = () => {
 }
 
 export default AdminDashboard
+
+
+

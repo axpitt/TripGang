@@ -3,10 +3,10 @@ import { motion, useInView } from 'framer-motion'
 import { getTeam } from '../lib/firestore'
 
 const FALLBACK_TEAM = [
-  { id: '1', name: 'Arpit Japulkar', role: 'Founder & Trip Organizer', phone: '7038276535', photo: '', bio: "The guy who looked at 30 muddy college friends and thought this should be a company. Arpit plans every trek from the ground up, handles registrations, and makes sure everyone gets home with a story worth telling.", order: 1 },
-  { id: '2', name: 'Bablu Ade', role: 'Co-Organizer', phone: '9022397476', photo: '', bio: "The one who keeps everything running on ground. Bablu handles logistics, coordinates with local guides, and makes sure the tempo traveller leaves on time.", order: 2 },
-  { id: '3', name: 'Samiksha More', role: 'Female Coordinator', phone: '', photo: '', bio: "Samiksha ensures every female participant feels safe, comfortable, and included. She is the reason TripGang is a space for everyone.", order: 3 },
-  { id: '4', name: 'Prathmesh Kadam', role: 'Social Media Manager', phone: '', photo: '', bio: "The person behind the camera and the captions. Prathmesh captures every moment and makes sure your trek ends up on your explore page.", order: 4 },
+  { id: '1', name: 'Arpit Japulkar', role: 'Founder & Trip Organizer', phone: '7038276535', photo: '', bio: "The guy who looked at 30 friends and thought this should be a community. Arpit plans every trip from the ground up, handles bookings, and makes sure everyone returns home with unforgettable memories.", order: 1 },
+  { id: '2', name: 'Bablu Ade', role: 'Co-Organizer & Route Lead', phone: '9022397476', photo: '', bio: "The one who keeps everything running smoothly on the road. Bablu handles travel logistics, coordinates vehicles, and makes sure every journey departs on time.", order: 2 },
+  { id: '3', name: 'Samiksha More', role: 'Female Coordinator', phone: '', photo: '', bio: "Samiksha ensures every traveler feels safe, comfortable, and included. She is the reason TripGang is a warm, welcoming community for everyone.", order: 3 },
+  { id: '4', name: 'Prathmesh Kadam', role: 'Media & Creative Lead', phone: '', photo: '', bio: "The person behind the lens and storytelling. Prathmesh captures every raw, candid moment so your trip memories stay timeless.", order: 4 },
 ]
 
 // Monsoon Trek palette avatar accent colors
@@ -22,12 +22,13 @@ const MemberCard = ({ member, index }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
       transition={{ delay: index * 0.12, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={{ y: -8, boxShadow: `0 20px 48px rgba(56,189,248,0.12)` }}
+      whileHover={{ y: -6, boxShadow: '0 20px 48px rgba(0,0,0,0.5), 0 0 20px rgba(46,194,126,0.1)' }}
       style={{
-        background: '#102A43',
-        border: '1px solid rgba(27,59,90,0.8)',
+        background: 'rgba(18, 21, 28, 0.7)',
+        border: '1px solid rgba(255, 255, 255, 0.08)',
         borderRadius: 20, padding: 28,
         display: 'flex', flexDirection: 'column', gap: 16,
+        backdropFilter: 'blur(16px)',
         transition: 'border-color 0.3s',
         cursor: 'default',
       }}
@@ -43,20 +44,20 @@ const MemberCard = ({ member, index }) => {
           {member.photo ? (
             <img src={member.photo} alt={member.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           ) : (
-            <span style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 22, color: accentColor }}>
+            <span style={{ fontFamily: 'Clash Display, sans-serif', fontSize: 22, color: accentColor }}>
               {initials}
             </span>
           )}
         </div>
         <div>
           <h3 style={{
-            fontFamily: 'Space Grotesk, sans-serif', fontSize: 18,
+            fontFamily: 'Satoshi, sans-serif', fontSize: 18,
             fontWeight: 700, color: '#F1F5F9', marginBottom: 4,
           }}>
             {member.name}
           </h3>
           <p style={{
-            fontFamily: 'Space Grotesk, sans-serif', fontSize: 11,
+            fontFamily: 'Satoshi, sans-serif', fontSize: 11,
             color: accentColor, fontWeight: 600, letterSpacing: 1.5,
             textTransform: 'uppercase',
           }}>
@@ -67,7 +68,7 @@ const MemberCard = ({ member, index }) => {
 
       {/* Bio */}
       <p style={{
-        fontFamily: 'Inter, sans-serif', fontSize: 14,
+        fontFamily: 'Satoshi, sans-serif', fontSize: 14,
         color: '#94A3B8', lineHeight: 1.75, flexGrow: 1,
       }}>
         {member.bio}
@@ -80,7 +81,7 @@ const MemberCard = ({ member, index }) => {
           target="_blank" rel="noopener noreferrer"
           style={{
             display: 'inline-flex', alignItems: 'center', gap: 6,
-            fontFamily: 'Space Grotesk, sans-serif', fontSize: 13, fontWeight: 600,
+            fontFamily: 'Satoshi, sans-serif', fontSize: 13, fontWeight: 600,
             color: '#25d366', textDecoration: 'none',
             padding: '8px 16px', borderRadius: 8,
             background: 'rgba(37,211,102,0.07)',
@@ -114,37 +115,14 @@ const TeamSection = () => {
       id="team"
       style={{
         padding: 'clamp(80px, 10vw, 120px) 24px',
-        background: '#0c1a2e',
+        background: '#0A0B0E',
         position: 'relative', overflow: 'hidden',
       }}
     >
-      {/* Glow */}
-      <div style={{
-        position: 'absolute', inset: 0, pointerEvents: 'none',
-        background: 'radial-gradient(ellipse at 50% 100%, rgba(56,189,248,0.05) 0%, transparent 60%)',
-      }} />
-
       <div style={{ maxWidth: 1100, margin: '0 auto', position: 'relative', zIndex: 1 }}>
 
-        {/* Section heading with ghost text */}
-        <div ref={headRef} style={{ textAlign: 'center', marginBottom: 64, position: 'relative', overflow: 'hidden' }}>
-          {/* Ghost watermark */}
-          <motion.span
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 0.06 } : {}}
-            transition={{ duration: 1.2 }}
-            style={{
-              fontFamily: 'Bebas Neue, sans-serif',
-              fontSize: 'clamp(80px, 16vw, 200px)',
-              color: '#F1F5F9',
-              position: 'absolute', top: '-0.25em', left: '50%',
-              transform: 'translateX(-50%)',
-              whiteSpace: 'nowrap',
-              pointerEvents: 'none', userSelect: 'none',
-              letterSpacing: '0.08em', lineHeight: 1,
-            }}
-          >GANG</motion.span>
-
+        {/* Section heading */}
+        <div ref={headRef} style={{ textAlign: 'center', marginBottom: 64, position: 'relative' }}>
           <motion.p
             className="section-eyebrow"
             initial={{ opacity: 0, y: 20 }}
@@ -159,7 +137,7 @@ const TeamSection = () => {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.15, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             style={{
-              fontFamily: 'Bebas Neue, sans-serif',
+              fontFamily: 'Clash Display, sans-serif',
               fontSize: 'clamp(42px, 6vw, 84px)',
               lineHeight: 1, color: '#F1F5F9', letterSpacing: 1,
               position: 'relative', zIndex: 2,
@@ -172,7 +150,7 @@ const TeamSection = () => {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.28, duration: 0.6 }}
             style={{
-              fontFamily: 'Inter, sans-serif', fontSize: 16,
+              fontFamily: 'Satoshi, sans-serif', fontSize: 16,
               color: '#94A3B8', marginTop: 16,
               maxWidth: 480, margin: '16px auto 0',
               lineHeight: 1.7, position: 'relative', zIndex: 2,
@@ -200,3 +178,6 @@ const TeamSection = () => {
 }
 
 export default TeamSection
+
+
+

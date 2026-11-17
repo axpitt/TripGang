@@ -19,8 +19,8 @@ const FooterSection = () => {
 
   return (
     <footer style={{
-      background: '#05101e',
-      borderTop: '1px solid rgba(56,189,248,0.07)',
+      background: '#07080B',
+      borderTop: '1px solid rgba(255,255,255,0.08)',
       padding: 'clamp(60px, 8vw, 100px) 24px 32px',
     }}>
       <div style={{ maxWidth: 1100, margin: '0 auto' }}>
@@ -48,12 +48,12 @@ const FooterSection = () => {
                   boxShadow: '0 0 16px rgba(46,194,126,0.2)',
                 }}
               />
-              <div style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 36, letterSpacing: 4, lineHeight: 1 }}>
+              <div style={{ fontFamily: 'Clash Display, sans-serif', fontSize: 36, letterSpacing: 4, lineHeight: 1 }}>
                 <span style={{ color: '#F1F5F9' }}>TRIP</span><span style={{ color: '#2EC27E' }}>GANG</span>
               </div>
             </div>
-            <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 15, color: '#475569', lineHeight: 1.7, maxWidth: 280, marginBottom: 24 }}>
-              Not just treks. We're the friends who plan the trip so you don't have to. Based in Chhatrapati Sambhajinagar, Maharashtra.
+            <p style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 15, color: '#475569', lineHeight: 1.7, maxWidth: 280, marginBottom: 24 }}>
+              Not just treks — road trips, weekend getaways, camping, and group adventures all around. We're the friends who plan the trip so you don't have to.
             </p>
             {/* Social */}
             <div style={{ display: 'flex', gap: 12 }}>
@@ -97,13 +97,13 @@ const FooterSection = () => {
 
           {/* Quick links */}
           <div>
-            <h4 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 11, fontWeight: 700, color: '#2EC27E', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 20 }}>
+            <h4 style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 11, fontWeight: 700, color: '#2EC27E', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 20 }}>
               Quick Links
             </h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
               {LINKS.quick.map(l => (
                 <button key={l.label} onClick={() => scrollTo(l.href)}
-                   style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'Inter, sans-serif', fontSize: 14, color: '#475569', textAlign: 'left', transition: 'color 0.2s', padding: 0 }}
+                   style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'Satoshi, sans-serif', fontSize: 14, color: '#475569', textAlign: 'left', transition: 'color 0.2s', padding: 0 }}
                   onMouseEnter={e => e.target.style.color = '#38BDF8'}
                   onMouseLeave={e => e.target.style.color = '#475569'}
                 >
@@ -115,7 +115,7 @@ const FooterSection = () => {
 
           {/* Contact */}
           <div>
-            <h4 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 11, fontWeight: 700, color: '#2EC27E', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 20 }}>
+            <h4 style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 11, fontWeight: 700, color: '#2EC27E', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 20 }}>
               Contact
             </h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
@@ -127,12 +127,12 @@ const FooterSection = () => {
                 <div key={text} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
                   <span>{icon}</span>
                   {href ? (
-                    <a href={href} style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, color: '#475569', textDecoration: 'none', transition: 'color 0.2s', lineHeight: 1.4 }}
+                    <a href={href} style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 14, color: '#475569', textDecoration: 'none', transition: 'color 0.2s', lineHeight: 1.4 }}
                       onMouseEnter={e => e.target.style.color = '#38BDF8'}
                       onMouseLeave={e => e.target.style.color = '#475569'}
                     >{text}</a>
                   ) : (
-                    <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, color: '#475569', lineHeight: 1.4 }}>{text}</span>
+                    <span style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 14, color: '#475569', lineHeight: 1.4 }}>{text}</span>
                   )}
                 </div>
               ))}
@@ -145,10 +145,10 @@ const FooterSection = () => {
 
         {/* Bottom bar */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
-          <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, color: '#475569' }}>
+          <p style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 13, color: '#475569' }}>
             © 2026 TripGang. All rights reserved.
           </p>
-          <p style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 11, color: '#1B3B5A', letterSpacing: 2 }}>
+          <p style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 11, color: '#1B3B5A', letterSpacing: 2 }}>
             EXPLORE. EXPERIENCE. EVOLVE.
           </p>
         </div>
@@ -164,3 +164,6 @@ const FooterSection = () => {
 }
 
 export default FooterSection
+
+
+

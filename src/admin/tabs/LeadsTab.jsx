@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+﻿import { useState, useEffect } from 'react'
 import { getLeads, updateLead } from '../../lib/firestore'
 
 const LeadsTab = () => {
@@ -34,8 +34,8 @@ const LeadsTab = () => {
       {/* Header */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24, flexWrap: 'wrap', gap: 12 }}>
         <div>
-          <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 28, color: '#F1F5F9', letterSpacing: 1 }}>LEADS</h2>
-          <p style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 12, color: '#475569', marginTop: 2 }}>
+          <h2 style={{ fontFamily: 'Clash Display, sans-serif', fontSize: 28, color: '#F1F5F9', letterSpacing: 1 }}>LEADS</h2>
+          <p style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 12, color: '#475569', marginTop: 2 }}>
             {leads.length} total · {leads.filter(l => !l.contacted).length} pending
           </p>
         </div>
@@ -43,7 +43,7 @@ const LeadsTab = () => {
         <div style={{ display: 'flex', gap: 6 }}>
           {['all', 'pending', 'contacted'].map(f => (
             <button key={f} onClick={() => setFilter(f)} style={{
-              fontFamily: 'Space Grotesk, sans-serif', fontSize: 11, fontWeight: 600,
+              fontFamily: 'Satoshi, sans-serif', fontSize: 11, fontWeight: 600,
               padding: '7px 14px', borderRadius: 100, cursor: 'pointer',
               textTransform: 'capitalize', letterSpacing: 0.5,
               background: filter === f ? '#2EC27E' : '#102A43',
@@ -56,9 +56,9 @@ const LeadsTab = () => {
       </div>
 
       {loading ? (
-        <p style={{ fontFamily: 'Space Grotesk, sans-serif', color: '#475569', textAlign: 'center', padding: 40 }}>Loading…</p>
+        <p style={{ fontFamily: 'Satoshi, sans-serif', color: '#475569', textAlign: 'center', padding: 40 }}>Loading…</p>
       ) : filtered.length === 0 ? (
-        <p style={{ fontFamily: 'Space Grotesk, sans-serif', color: '#475569', textAlign: 'center', padding: 40 }}>No leads found.</p>
+        <p style={{ fontFamily: 'Satoshi, sans-serif', color: '#475569', textAlign: 'center', padding: 40 }}>No leads found.</p>
       ) : (
         <>
           {/* Desktop table */}
@@ -68,7 +68,7 @@ const LeadsTab = () => {
                 <tr>
                   {['Name', 'Phone', 'Trip', 'Received', 'Contacted'].map(h => (
                     <th key={h} style={{
-                      fontFamily: 'Space Grotesk, sans-serif', fontSize: 10, color: '#475569',
+                      fontFamily: 'Satoshi, sans-serif', fontSize: 10, color: '#475569',
                       letterSpacing: 2, textTransform: 'uppercase', textAlign: 'left',
                       padding: '10px 14px', borderBottom: '1px solid rgba(27,59,90,0.8)',
                     }}>{h}</th>
@@ -82,19 +82,19 @@ const LeadsTab = () => {
                     transition: 'background 0.15s',
                   }}>
                     <td style={{ padding: '12px 14px' }}>
-                      <p style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 13, fontWeight: 600, color: '#F1F5F9' }}>{lead.name || '—'}</p>
+                      <p style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 13, fontWeight: 600, color: '#F1F5F9' }}>{lead.name || '—'}</p>
                     </td>
                     <td style={{ padding: '12px 14px' }}>
                       <a href={`https://wa.me/91${lead.phone}`} target="_blank" rel="noopener noreferrer"
-                        style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 13, color: '#25d366', textDecoration: 'none' }}>
+                        style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 13, color: '#25d366', textDecoration: 'none' }}>
                         {lead.phone || '—'}
                       </a>
                     </td>
                     <td style={{ padding: '12px 14px' }}>
-                      <p style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 12, color: '#38BDF8' }}>{lead.tripName || lead.tripId || '—'}</p>
+                      <p style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 12, color: '#38BDF8' }}>{lead.tripName || lead.tripId || '—'}</p>
                     </td>
                     <td style={{ padding: '12px 14px' }}>
-                      <p style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 11, color: '#475569' }}>{fmtDate(lead.createdAt)}</p>
+                      <p style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 11, color: '#475569' }}>{fmtDate(lead.createdAt)}</p>
                     </td>
                     <td style={{ padding: '12px 14px' }}>
                       <button onClick={() => toggleContacted(lead)} style={{
@@ -102,7 +102,7 @@ const LeadsTab = () => {
                         background: lead.contacted ? 'rgba(46,194,126,0.12)' : 'rgba(251,133,0,0.1)',
                         border: `1px solid ${lead.contacted ? 'rgba(46,194,126,0.3)' : 'rgba(251,133,0,0.25)'}`,
                         borderRadius: 100, padding: '5px 12px', cursor: 'pointer',
-                        fontFamily: 'Space Grotesk, sans-serif', fontSize: 11, fontWeight: 600,
+                        fontFamily: 'Satoshi, sans-serif', fontSize: 11, fontWeight: 600,
                         color: lead.contacted ? '#2EC27E' : '#FB8500',
                         transition: 'all 0.2s',
                       }}>
@@ -125,9 +125,9 @@ const LeadsTab = () => {
               }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 }}>
                   <div>
-                    <p style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 14, fontWeight: 700, color: '#F1F5F9' }}>{lead.name || '—'}</p>
+                    <p style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 14, fontWeight: 700, color: '#F1F5F9' }}>{lead.name || '—'}</p>
                     <a href={`https://wa.me/91${lead.phone}`} target="_blank" rel="noopener noreferrer"
-                      style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 12, color: '#25d366', textDecoration: 'none' }}>
+                      style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 12, color: '#25d366', textDecoration: 'none' }}>
                       {lead.phone}
                     </a>
                   </div>
@@ -135,14 +135,14 @@ const LeadsTab = () => {
                     background: lead.contacted ? 'rgba(46,194,126,0.12)' : 'rgba(251,133,0,0.1)',
                     border: `1px solid ${lead.contacted ? 'rgba(46,194,126,0.3)' : 'rgba(251,133,0,0.25)'}`,
                     borderRadius: 100, padding: '5px 12px', cursor: 'pointer',
-                    fontFamily: 'Space Grotesk, sans-serif', fontSize: 11, fontWeight: 600,
+                    fontFamily: 'Satoshi, sans-serif', fontSize: 11, fontWeight: 600,
                     color: lead.contacted ? '#2EC27E' : '#FB8500',
                   }}>
                     {lead.contacted ? '✓ Done' : '○ Pending'}
                   </button>
                 </div>
-                <p style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 11, color: '#38BDF8' }}>{lead.tripName || lead.tripId}</p>
-                <p style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 10, color: '#475569', marginTop: 4 }}>{fmtDate(lead.createdAt)}</p>
+                <p style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 11, color: '#38BDF8' }}>{lead.tripName || lead.tripId}</p>
+                <p style={{ fontFamily: 'Satoshi, sans-serif', fontSize: 10, color: '#475569', marginTop: 4 }}>{fmtDate(lead.createdAt)}</p>
               </div>
             ))}
           </div>
@@ -160,3 +160,6 @@ const LeadsTab = () => {
 }
 
 export default LeadsTab
+
+
+

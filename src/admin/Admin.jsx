@@ -1,4 +1,4 @@
-import { useAdminAuth } from './useAdminAuth'
+﻿import { useAdminAuth } from './useAdminAuth'
 import AdminLogin from './AdminLogin'
 import AdminDashboard from './AdminDashboard'
 
@@ -13,7 +13,7 @@ const Admin = () => {
         background: '#081120',
       }}>
         <div style={{
-          fontFamily: 'Bebas Neue, sans-serif', fontSize: 32,
+          fontFamily: 'Clash Display, sans-serif', fontSize: 32,
           color: '#2EC27E', letterSpacing: 4,
           animation: 'pulse 1.5s ease-in-out infinite',
         }}>
@@ -34,3 +34,6 @@ const Admin = () => {
 }
 
 export default Admin
+
+
+

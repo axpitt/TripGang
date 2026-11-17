@@ -19,15 +19,30 @@ const ArrowRightIcon = () => (
   </svg>
 );
 
-// Pre-filled TripGang Upcoming Treks Data
+// Pre-filled TripGang Upcoming Trips Data (Covering road trips, getaways, camping & treks)
 export const defaultTrips = [
   {
+    id: "gokarna-roadtrip",
+    tag: "🌊 BEACH & ROAD TRIP",
+    difficulty: "Easy",
+    titleLine1: "GOKARNA & GOA",
+    titleLine2: "COASTAL ROAD TRIP",
+    desc: "Scenic coastal highway drive · Sunset beach cafes · Cliff walks & secluded coves",
+    duration: "4 Days 3 Nights",
+    distance: "Road Trip",
+    price: "₹6,499",
+    originalPrice: "₹7,499",
+    img: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=1000&q=80",
+    ctaText: "Book Now",
+    ctaUrl: "#booking",
+  },
+  {
     id: "harishchandragad",
-    tag: "🔥 BESTSELLER",
+    tag: "⛺ CLIFF CAMPING & TREK",
     difficulty: "Moderate",
     titleLine1: "HARISHCHANDRAGAD",
-    titleLine2: "FORT & KONKAN KADA",
-    desc: "1,424m cliff trek · Brocken Spectre · Ancient Kedareshwar Cave & sunrise at Taramati Peak",
+    titleLine2: "KONKAN KADA CAMP",
+    desc: "1,424m cliff camping · Brocken Spectre · Ancient Kedareshwar Cave & sunrise at Taramati Peak",
     duration: "2 Days 1 Night",
     distance: "14-16 km",
     price: "₹1,699",
@@ -37,62 +52,47 @@ export const defaultTrips = [
     ctaUrl: "#booking",
   },
   {
-    id: "aadrai",
-    tag: "🌿 MONSOON SPECIAL",
+    id: "pawna-camping",
+    tag: "🔥 CAMPFIRE & BBQ",
     difficulty: "Easy",
-    titleLine1: "AADRAI JUNGLE",
-    titleLine2: "DARK FOREST & KALU WATERFALL",
-    desc: "1,200ft waterfall view · Deep Sahyadri rainforest canopy · Ancient caves & streams",
-    duration: "1 Day Trek",
+    titleLine1: "PAWNA LAKE ESCAPE",
+    titleLine2: "STARGAZING & MUSIC",
+    desc: "Lakeside luxury tents · Live acoustic guitar & bonfire · Sunset kayaking & open-air barbecue",
+    duration: "Weekend Getaway",
+    distance: "Lakeside Camp",
+    price: "₹1,499",
+    originalPrice: "₹1,899",
+    img: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=1000&q=80",
+    ctaText: "Book Now",
+    ctaUrl: "#booking",
+  },
+  {
+    id: "hampi-backpacking",
+    tag: "🏛️ HERITAGE & SUNSETS",
+    difficulty: "Easy",
+    titleLine1: "HAMPI BACKPACKING",
+    titleLine2: "BOULDER TRAILS & RUINS",
+    desc: "Moped rides through banana plantations · Sanapur lake cliff jumping · Sunset at Matanga Hill",
+    duration: "3 Days 2 Nights",
+    distance: "Backpacking",
+    price: "₹4,999",
+    originalPrice: "₹5,799",
+    img: "https://images.unsplash.com/photo-1600100397608-f010f421a150?auto=format&fit=crop&w=1000&q=80",
+    ctaText: "Book Now",
+    ctaUrl: "#booking",
+  },
+  {
+    id: "aadrai-monsoon",
+    tag: "🌿 RAINFOREST TRAIL",
+    difficulty: "Easy",
+    titleLine1: "AADRAI EXPEDITION",
+    titleLine2: "DARK FOREST & WATERFALLS",
+    desc: "1,200ft valley view · Deep Sahyadri rainforest canopy · Hidden streams & lush mist",
+    duration: "1 Day Trip",
     distance: "12-14 km",
-    price: "₹799",
-    originalPrice: "₹999",
-    img: "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1000&q=80",
-    ctaText: "Book Now",
-    ctaUrl: "#booking",
-  },
-  {
-    id: "kalsubai",
-    tag: "⭐ HIGHEST PEAK",
-    difficulty: "Moderate",
-    titleLine1: "KALSUBAI PEAK",
-    titleLine2: "EVEREST OF MAHARASHTRA",
-    desc: "Highest point in Maharashtra (1,646m) · Sea of clouds sunrise · Steel ladders trail",
-    duration: "1 Night 1 Day",
-    distance: "6.6 km",
-    price: "₹1,299",
-    originalPrice: "₹1,599",
-    img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=80",
-    ctaText: "Book Now",
-    ctaUrl: "#booking",
-  },
-  {
-    id: "devkund",
-    tag: "💧 HIDDEN GEM",
-    difficulty: "Easy",
-    titleLine1: "DEVKUND WATERFALL",
-    titleLine2: "EMERALD POOL TREK",
-    desc: "Turquoise plunge pool · Dense Bhira jungle trail · Picturesque Sahyadri streams",
-    duration: "1 Day Trek",
-    distance: "9-10 km",
     price: "₹899",
-    originalPrice: "₹1,199",
-    img: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1000&q=80",
-    ctaText: "Book Now",
-    ctaUrl: "#booking",
-  },
-  {
-    id: "ratangad",
-    tag: "🏰 JEWEL OF FORTS",
-    difficulty: "Moderate",
-    titleLine1: "RATANGAD FORT",
-    titleLine2: "NEDHE & AMRUTESHWAR",
-    desc: "Natural rock cavity (Nedhe) · Bhandardara dam view · Historic Maratha fort",
-    duration: "2 Days 1 Night",
-    distance: "11 km",
-    price: "₹1,799",
-    originalPrice: "₹2,199",
-    img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1000&q=80",
+    originalPrice: "₹1,099",
+    img: "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1000&q=80",
     ctaText: "Book Now",
     ctaUrl: "#booking",
   }
@@ -105,6 +105,7 @@ export function CoverFlowCarousel({
   autoplayDelay = 4500,
   className = "",
   onCtaClick,
+  onTripSelect,
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
@@ -158,7 +159,7 @@ export function CoverFlowCarousel({
       style={{
         backgroundColor: "transparent",
         color: "#ffffff",
-        fontFamily: "'Space Grotesk', system-ui, sans-serif",
+        fontFamily: "'Satoshi', system-ui, sans-serif",
         padding: "4px 0",
       }}
       onMouseEnter={() => setIsHovered(true)}
@@ -244,7 +245,13 @@ export function CoverFlowCarousel({
             return (
               <div
                 key={item.id || idx}
-                onClick={() => !isCenter && goToSlide(idx)}
+                onClick={() => {
+                  if (!isCenter) {
+                    goToSlide(idx);
+                  } else if (onTripSelect) {
+                    onTripSelect(item);
+                  }
+                }}
                 style={{
                   position: "absolute",
                   width: "285px",
@@ -252,7 +259,7 @@ export function CoverFlowCarousel({
                   borderRadius: "18px",
                   overflow: "hidden",
                   backgroundColor: "#102A43",
-                  border: isCenter ? "1px solid rgba(46,194,126,0.4)" : "1px solid rgba(56,189,248,0.15)",
+                  border: isCenter ? "1px solid rgba(46,194,126,0.5)" : "1px solid rgba(56,189,248,0.15)",
                   transform,
                   opacity,
                   zIndex,
@@ -262,7 +269,7 @@ export function CoverFlowCarousel({
                   boxShadow: isCenter
                     ? "0 20px 50px rgba(0,0,0,0.9), 0 0 30px rgba(46,194,126,0.25)"
                     : "0 12px 28px rgba(0,0,0,0.6)",
-                  cursor: isCenter ? "default" : "pointer",
+                  cursor: "pointer",
                 }}
               >
                 {/* Trek Photo */}
@@ -356,7 +363,7 @@ export function CoverFlowCarousel({
                   >
                     <h2
                       style={{
-                        fontFamily: "'Bebas Neue', sans-serif",
+                        fontFamily: "'Clash Display, sans-serif'",
                         fontSize: "1.5rem",
                         letterSpacing: "0.04em",
                         color: "#ffffff",
@@ -375,7 +382,7 @@ export function CoverFlowCarousel({
                           fontWeight: 700,
                           textTransform: "uppercase",
                           letterSpacing: "0.07em",
-                          color: "#38BDF8",
+                          color: "#2EC27E",
                           lineHeight: 1.2,
                           textShadow: "0 2px 8px rgba(0,0,0,0.9)",
                         }}
@@ -426,9 +433,9 @@ export function CoverFlowCarousel({
                       </p>
                     )}
 
-                    {/* Pricing & CTA */}
-                    <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                      <div style={{ textAlign: "left" }}>
+                    {/* Pricing & Interactive CTA Buttons */}
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px", width: "100%", marginTop: "2px" }}>
+                      <div style={{ textAlign: "left", flexShrink: 0 }}>
                         <div style={{ fontSize: "1rem", fontWeight: 800, color: "#2EC27E", lineHeight: 1 }}>
                           {item.price}
                         </div>
@@ -439,37 +446,74 @@ export function CoverFlowCarousel({
                         )}
                       </div>
 
-                      <a
-                        href={item.ctaUrl || "#booking"}
-                        onClick={(e) => {
-                          if (onCtaClick) {
-                            e.preventDefault();
-                            onCtaClick(item);
-                          }
-                        }}
-                        style={{
-                          display: "inline-flex",
-                          alignItems: "center",
-                          gap: "5px",
-                          padding: "6px 16px",
-                          borderRadius: "9999px",
-                          background: "#2EC27E",
-                          color: "#041a10",
-                          fontSize: "0.74rem",
-                          fontWeight: 800,
-                          letterSpacing: "0.08em",
-                          textTransform: "uppercase",
-                          textDecoration: "none",
-                          boxShadow: "0 4px 12px rgba(46,194,126,0.4)",
-                          cursor: "pointer",
-                          transition: "transform 200ms ease, box-shadow 200ms ease",
-                        }}
-                        onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
-                        onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-                      >
-                        <span>{item.ctaText || "Book Now"}</span>
-                        <ArrowRightIcon />
-                      </a>
+                      <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            if (onTripSelect) onTripSelect(item);
+                          }}
+                          style={{
+                            display: "inline-flex",
+                            alignItems: "center",
+                            gap: "4px",
+                            padding: "6px 11px",
+                            borderRadius: "9999px",
+                            background: "rgba(255, 255, 255, 0.12)",
+                            backdropFilter: "blur(8px)",
+                            border: "1px solid rgba(255, 255, 255, 0.2)",
+                            color: "#F1F5F9",
+                            fontSize: "0.7rem",
+                            fontWeight: 700,
+                            letterSpacing: "0.04em",
+                            cursor: "pointer",
+                            transition: "all 0.2s",
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.background = "rgba(46,194,126,0.2)";
+                            e.currentTarget.style.borderColor = "#2EC27E";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.background = "rgba(255, 255, 255, 0.12)";
+                            e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.2)";
+                          }}
+                        >
+                          About Trip ℹ️
+                        </button>
+
+                        <a
+                          href={item.ctaUrl || "#booking"}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            if (onCtaClick) {
+                              e.preventDefault();
+                              onCtaClick(item);
+                            }
+                          }}
+                          style={{
+                            display: "inline-flex",
+                            alignItems: "center",
+                            gap: "4px",
+                            padding: "6px 13px",
+                            borderRadius: "9999px",
+                            background: "#2EC27E",
+                            color: "#041a10",
+                            fontSize: "0.72rem",
+                            fontWeight: 800,
+                            letterSpacing: "0.06em",
+                            textTransform: "uppercase",
+                            textDecoration: "none",
+                            boxShadow: "0 4px 12px rgba(46,194,126,0.4)",
+                            cursor: "pointer",
+                            transition: "transform 200ms ease, box-shadow 200ms ease",
+                          }}
+                          onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+                          onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+                        >
+                          <span>{item.ctaText || "Book"}</span>
+                          <ArrowRightIcon />
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -559,3 +603,6 @@ export function CoverFlowCarousel({
 }
 
 export default CoverFlowCarousel;
+
+
+
