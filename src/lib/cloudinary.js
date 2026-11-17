@@ -1,10 +1,10 @@
 /**
  * Cloudinary config for TripGang
- * Reads unsigned upload settings from environment variables
+ * Reads unsigned upload settings from environment variables with safe defaults
  */
 
-const CLOUD_NAME = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME || ''
-const UPLOAD_PRESET = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET || ''
+const CLOUD_NAME = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME || 'dftr0uawp'
+const UPLOAD_PRESET = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET || 'tripgang_uploads'
 
 /**
  * Upload an image file to Cloudinary
@@ -48,15 +48,22 @@ export const uploadImage = async (file, folder = 'tripgang', onProgress) => {
 
 /**
  * Get optimized image URL from Cloudinary
+ * Injects w_auto, q_auto, f_auto into the delivery URL
  * @param {string} url - Original Cloudinary URL
- * @param {object} opts - Transformation options
+ * @param {object} options - { width, quality, format }
+ * @returns {string} Optimized URL
  */
-export const getOptimizedUrl = (url, { width = 800, quality = 'auto', format = 'auto' } = {}) => {
+export const getOptimizedImageUrl = (url, { width = 'auto', quality = 'auto', format = 'auto' } = {}) => {
   if (!url || !url.includes('cloudinary.com')) return url
-  return url.replace(
-    '/upload/',
-    `/upload/w_${width},q_${quality},f_${format}/`
-  )
-}
 
-export { CLOUD_NAME }
+  const uploadSegment = '/upload/'
+  const idx = url.indexOf(uploadSegment)
+  if (idx === -1) return url
+
+  const transformations = [`f_${format}`, `q_${quality}`]
+  if (width !== 'auto') transformations.push(`w_${width},c_limit`)
+  else transformations.push('w_auto')
+
+  const transformString = transformations.join(',') + '/'
+  return url.slice(0, idx + uploadSegment.length) + transformString + url.slice(idx + uploadSegment.length)
+}
